@@ -1,0 +1,2140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Ananda Paramanick — Founder-Led YouTube Editing, SEO & Growth</title>
+<meta name="description" content="The algorithm doesn't reward talent. It rewards the editor who knows how to best showcase that talent. Founder-led editing, SEO, thumbnails, titles and uploads for serious content creators." />
+<meta name="theme-color" content="#070510" />
+
+<!-- REPLACE: update these social-share tags with your real domain + a 1200x630 Cloudinary image -->
+<meta property="og:title" content="Ananda Paramanick — Founder-Led YouTube Editing & Growth" />
+<meta property="og:description" content="The algorithm doesn't reward talent. It rewards the editor who knows how to best showcase that talent." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://REPLACE-WITH-YOUR-DOMAIN.com" />
+<meta property="og:image" content="REPLACE_WITH_CLOUDINARY_OG_IMAGE_1200x630" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<!-- REPLACE: swap this favicon for your own Cloudinary-hosted icon if you have one -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%237C4DFF'/%3E%3Ctext x='50' y='68' font-family='Arial,sans-serif' font-size='52' font-weight='bold' fill='white' text-anchor='middle'%3EAP%3C/text%3E%3C/svg%3E" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   0. TOKENS
+   ============================================================ */
+:root{
+  --bg:        #070510;
+  --bg-2:      #0B0818;
+  --panel:     #120C22;
+  --panel-2:   #180F2E;
+  --panel-3:   #1E1338;
+  --line:      rgba(255,255,255,.09);
+  --line-2:    rgba(255,255,255,.16);
+
+  --purple:    #7C4DFF;
+  --purple-2:  #A585FF;
+  --purple-3:  #C9B4FF;
+  --purple-deep:#3B1C9E;
+  --purple-ink:#2A1170;
+
+  --text:      #F3F0FB;
+  --muted:     #A79CC4;
+  --muted-2:   #7E7499;
+  --gold:      #FFC46B;
+
+  --r-sm: 14px;
+  --r-md: 22px;
+  --r-lg: 32px;
+  --r-xl: 44px;
+
+  --pad: clamp(20px, 5vw, 64px);
+  --sec: clamp(80px, 11vw, 168px);
+  --maxw: 1240px;
+
+  --ease: cubic-bezier(.22,1,.36,1);
+}
+
+*,*::before,*::after{ box-sizing:border-box; }
+html{ -webkit-text-size-adjust:100%; scroll-behavior:smooth; }
+@media (prefers-reduced-motion: reduce){ html{ scroll-behavior:auto; } }
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+  font-size:clamp(15.5px,1.05vw,17.5px);
+  line-height:1.72;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  overflow-x:hidden;
+}
+
+h1,h2,h3,h4,.display{
+  font-family:'Bricolage Grotesque','Inter',sans-serif;
+  font-weight:800;
+  line-height:1.02;
+  letter-spacing:-.03em;
+  margin:0;
+  font-optical-sizing:auto;
+}
+p{ margin:0 0 1.15em; }
+p:last-child{ margin-bottom:0; }
+a{ color:inherit; text-decoration:none; }
+img{ max-width:100%; display:block; }
+button{ font:inherit; color:inherit; }
+
+::selection{ background:var(--purple); color:#fff; }
+
+:focus-visible{
+  outline:2px solid var(--purple-2);
+  outline-offset:3px;
+  border-radius:6px;
+}
+
+/* ============================================================
+   1. AMBIENT BACKGROUND
+   ============================================================ */
+.fx{ position:fixed; inset:0; z-index:0; pointer-events:none; overflow:hidden; }
+.orb{
+  position:absolute; border-radius:50%;
+  filter:blur(110px); opacity:.5;
+}
+.orb.a{ width:60vw; height:60vw; max-width:820px; max-height:820px; top:-22vw; left:-14vw;
+        background:radial-gradient(circle, #6a34ff 0%, rgba(60,20,150,0) 70%); }
+.orb.b{ width:52vw; height:52vw; max-width:700px; max-height:700px; top:38%; right:-18vw;
+        background:radial-gradient(circle, #4a1fd0 0%, rgba(40,10,110,0) 70%); opacity:.42; }
+.orb.c{ width:56vw; height:56vw; max-width:760px; max-height:760px; bottom:-20vw; left:20%;
+        background:radial-gradient(circle, #5a2bd8 0%, rgba(30,10,90,0) 70%); opacity:.34; }
+
+.fx::after{
+  content:''; position:absolute; inset:0; opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* mouse spotlight — desktop pointers only */
+.spot{
+  position:fixed; z-index:0; pointer-events:none;
+  width:640px; height:640px; border-radius:50%;
+  left:var(--mx,50%); top:var(--my,50%);
+  transform:translate(-50%,-50%);
+  background:radial-gradient(circle, rgba(124,77,255,.16) 0%, rgba(124,77,255,0) 62%);
+  opacity:0; transition:opacity .6s ease;
+}
+@media (pointer:fine){ .spot.on{ opacity:1; } }
+
+/* scroll progress */
+.progress{
+  position:fixed; top:0; left:0; height:2px; width:0%;
+  background:linear-gradient(90deg,var(--purple),var(--purple-3));
+  z-index:120; transition:width .1s linear;
+  box-shadow:0 0 12px rgba(124,77,255,.8);
+}
+
+/* ============================================================
+   2. LAYOUT PRIMITIVES
+   ============================================================ */
+main,header,footer{ position:relative; z-index:2; }
+.wrap{ width:100%; max-width:var(--maxw); margin-inline:auto; padding-inline:var(--pad); }
+.narrow{ max-width:760px; margin-inline:auto; }
+.section{ padding-block:var(--sec); position:relative; }
+
+.eyebrow{
+  display:inline-flex; align-items:center; gap:10px;
+  font-family:'Inter',sans-serif; font-size:11.5px; font-weight:700;
+  letter-spacing:.22em; text-transform:uppercase; color:var(--purple-3);
+  line-height:1;
+}
+.eyebrow::before{
+  content:''; width:22px; height:1px; background:var(--purple); flex:none;
+}
+.eyebrow.center{ justify-content:center; }
+.eyebrow.dot::before{
+  width:7px; height:7px; border-radius:50%;
+  background:#4ade80; box-shadow:0 0 0 4px rgba(74,222,128,.16);
+  animation:pulse 2.4s ease-in-out infinite;
+}
+@keyframes pulse{ 0%,100%{opacity:1} 50%{opacity:.45} }
+
+.h-xl{ font-size:clamp(2.6rem, 6.6vw, 5.1rem); }
+.h-lg{ font-size:clamp(2.15rem, 5vw, 3.9rem); }
+.h-md{ font-size:clamp(1.6rem, 3vw, 2.35rem); letter-spacing:-.025em; }
+.h-sm{ font-size:clamp(1.15rem, 1.6vw, 1.36rem); letter-spacing:-.02em; line-height:1.25; }
+
+.lead{ font-size:clamp(1.02rem,1.32vw,1.18rem); color:var(--muted); line-height:1.78; }
+.grad{ background:linear-gradient(105deg,var(--purple-2) 0%, var(--purple-3) 45%, #fff 100%);
+       -webkit-background-clip:text; background-clip:text; color:transparent; }
+.pur{ color:var(--purple-2); }
+.em{ color:var(--text); font-weight:600; }
+.it{ font-style:italic; color:var(--purple-3); }
+
+.sec-head{ margin-bottom:clamp(44px,6vw,80px); }
+.sec-head.center{ text-align:center; }
+.sec-head.center .lead{ margin-inline:auto; max-width:660px; }
+.sec-head .h-lg{ margin-top:20px; }
+.sec-head .lead{ margin-top:22px; }
+
+/* ============================================================
+   3. BUTTONS
+   ============================================================ */
+.btn{
+  --bg-btn:var(--purple);
+  position:relative; display:inline-flex; align-items:center; justify-content:center;
+  gap:11px; padding:17px 30px; border-radius:100px;
+  font-family:'Inter',sans-serif; font-weight:700; font-size:15px; letter-spacing:-.01em;
+  border:0; cursor:pointer; overflow:hidden; isolation:isolate;
+  background:var(--bg-btn); color:#fff;
+  box-shadow:0 10px 34px -10px rgba(124,77,255,.75), inset 0 1px 0 rgba(255,255,255,.22);
+  transition:transform .38s var(--ease), box-shadow .38s var(--ease);
+  text-align:center;
+}
+.btn::before{
+  content:''; position:absolute; inset:0; z-index:-1;
+  background:linear-gradient(100deg,var(--purple) 0%,#9d6bff 50%,var(--purple) 100%);
+  background-size:220% 100%; background-position:0% 0;
+  transition:background-position .7s var(--ease);
+}
+.btn:hover{ transform:translateY(-3px);
+  box-shadow:0 18px 46px -12px rgba(124,77,255,.9), inset 0 1px 0 rgba(255,255,255,.3); }
+.btn:hover::before{ background-position:100% 0; }
+.btn:active{ transform:translateY(-1px); }
+.btn svg{ flex:none; transition:transform .38s var(--ease); }
+.btn:hover svg{ transform:translate(3px,-3px); }
+
+.btn.ghost{
+  background:rgba(255,255,255,.045); color:var(--text);
+  border:1px solid var(--line-2); box-shadow:none; backdrop-filter:blur(8px);
+}
+.btn.ghost::before{ display:none; }
+.btn.ghost:hover{ background:rgba(255,255,255,.09); border-color:var(--purple-2); box-shadow:0 12px 34px -16px rgba(124,77,255,.7); }
+
+.btn.big{ padding:21px 40px; font-size:16.5px; }
+.btn.light{ background:#fff; color:#12082e; box-shadow:0 14px 40px -14px rgba(255,255,255,.5); }
+.btn.light::before{ display:none; }
+.btn.light:hover{ box-shadow:0 20px 50px -16px rgba(255,255,255,.6); }
+
+.cta-row{ display:flex; flex-wrap:wrap; gap:14px; align-items:center; }
+.cta-row.center{ justify-content:center; }
+
+.cta-note{
+  margin-top:18px; font-size:13.5px; color:var(--muted-2); letter-spacing:.01em;
+  display:flex; align-items:center; gap:8px; flex-wrap:wrap;
+}
+.cta-note.center{ justify-content:center; }
+
+/* solo CTA band used between sections */
+.cta-band{ text-align:center; padding-block:clamp(46px,6vw,74px); }
+
+/* ============================================================
+   4. NAV
+   ============================================================ */
+.nav{
+  position:fixed; top:0; left:0; right:0; z-index:100;
+  padding:16px var(--pad);
+  transition:padding .45s var(--ease);
+}
+.nav.stuck{ padding-top:10px; }
+.nav-inner{
+  max-width:var(--maxw); margin-inline:auto;
+  display:flex; align-items:center; justify-content:space-between; gap:8px;
+  padding:9px 9px 9px 26px; border-radius:100px;
+  background:rgba(20,13,38,.72);
+  border:1px solid var(--line);
+  backdrop-filter:blur(20px) saturate(160%);
+  -webkit-backdrop-filter:blur(20px) saturate(160%);
+  box-shadow:0 18px 48px -22px rgba(0,0,0,.9);
+  transition:background .45s var(--ease), border-color .45s var(--ease);
+}
+.nav.stuck .nav-inner{ background:rgba(16,10,32,.9); border-color:var(--line-2); }
+
+.brand{ display:flex; align-items:center; gap:11px; flex:none; }
+.mono{
+  width:34px; height:34px; border-radius:50%; flex:none;
+  display:grid; place-items:center;
+  background:linear-gradient(140deg,var(--purple),#5a2bd8);
+  font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:13px;
+  letter-spacing:-.03em; color:#fff;
+  box-shadow:0 0 0 1px rgba(255,255,255,.14), 0 6px 18px -6px rgba(124,77,255,.9);
+}
+.brand-name{ font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:15px; letter-spacing:-.02em; white-space:nowrap; }
+.brand-name span{ display:block; font-family:'Inter',sans-serif; font-weight:500; font-size:10px;
+  letter-spacing:.14em; text-transform:uppercase; color:var(--muted-2); margin-top:2px; }
+
+.nav-links{ display:flex; align-items:center; gap:4px; }
+.nav-links a{
+  position:relative; padding:9px 15px; border-radius:100px;
+  font-size:13.5px; font-weight:500; color:var(--muted);
+  transition:color .3s var(--ease), background .3s var(--ease);
+  white-space:nowrap;
+}
+.nav-links a:hover{ color:var(--text); background:rgba(255,255,255,.06); }
+.nav-links a.active{ color:#fff; background:rgba(124,77,255,.24); box-shadow:inset 0 0 0 1px rgba(165,133,255,.32); }
+
+.nav-cta{ display:flex; align-items:center; gap:10px; flex:none; }
+.nav-cta .btn{ padding:12px 21px; font-size:13.5px; }
+
+.burger{
+  display:none; width:44px; height:44px; border-radius:50%;
+  background:rgba(255,255,255,.06); border:1px solid var(--line);
+  cursor:pointer; position:relative; flex:none;
+}
+.burger i{
+  position:absolute; left:13px; width:18px; height:1.8px; border-radius:2px;
+  background:var(--text); transition:transform .4s var(--ease), opacity .25s ease;
+}
+.burger i:nth-child(1){ top:16px; }
+.burger i:nth-child(2){ top:21.5px; }
+.burger i:nth-child(3){ top:27px; }
+body.menu-open .burger i:nth-child(1){ transform:translateY(5.5px) rotate(45deg); }
+body.menu-open .burger i:nth-child(2){ opacity:0; }
+body.menu-open .burger i:nth-child(3){ transform:translateY(-5.5px) rotate(-45deg); }
+
+.mobile-menu{
+  position:fixed; inset:0; z-index:99;
+  background:rgba(7,5,16,.97);
+  backdrop-filter:blur(24px); -webkit-backdrop-filter:blur(24px);
+  display:flex; flex-direction:column; justify-content:center;
+  padding:100px var(--pad) 44px;
+  opacity:0; visibility:hidden; transition:opacity .45s var(--ease), visibility .45s;
+  overflow-y:auto;
+}
+body.menu-open .mobile-menu{ opacity:1; visibility:visible; }
+.mobile-menu a.m-link{
+  font-family:'Bricolage Grotesque',sans-serif; font-weight:700;
+  font-size:clamp(1.9rem,8vw,2.6rem); letter-spacing:-.03em;
+  padding:11px 0; color:var(--text);
+  border-bottom:1px solid rgba(255,255,255,.06);
+  opacity:0; transform:translateY(18px);
+  transition:opacity .5s var(--ease), transform .5s var(--ease), color .3s ease;
+  display:block;
+}
+.mobile-menu a.m-link:hover{ color:var(--purple-2); }
+body.menu-open .mobile-menu a.m-link{ opacity:1; transform:none; }
+.mobile-menu .btn{ margin-top:32px; width:100%; }
+
+/* ============================================================
+   5. HERO
+   ============================================================ */
+.hero{
+  min-height:100svh; display:flex; align-items:center;
+  padding-top:clamp(130px,17vh,180px); padding-bottom:clamp(70px,10vh,110px);
+  position:relative;
+}
+.hero-grid{
+  display:grid; grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);
+  gap:clamp(34px,5vw,72px); align-items:center;
+}
+
+/* portrait */
+.portrait{
+  position:relative; border-radius:var(--r-xl); overflow:visible;
+  aspect-ratio:4/4.7;
+}
+.portrait-frame{
+  position:absolute; inset:0; border-radius:var(--r-xl); overflow:hidden;
+  background:
+    radial-gradient(120% 90% at 50% 0%, rgba(255,255,255,.14) 0%, rgba(255,255,255,0) 60%),
+    linear-gradient(165deg, var(--purple) 0%, #5a2bd8 48%, #34158f 100%);
+  box-shadow:0 40px 100px -34px rgba(90,43,216,.9), inset 0 1px 0 rgba(255,255,255,.2);
+}
+.portrait-frame img{
+  width:100%; height:100%; object-fit:cover; object-position:top center;
+  mix-blend-mode:luminosity; opacity:.96;
+}
+.portrait-frame::after{
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(to top, rgba(20,8,60,.55) 0%, rgba(20,8,60,0) 45%);
+}
+.badge-card{
+  position:absolute; right:-14px; bottom:26px; z-index:3;
+  background:rgba(18,12,34,.86); border:1px solid var(--line-2);
+  backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px);
+  border-radius:18px; padding:14px 18px;
+  box-shadow:0 22px 50px -20px rgba(0,0,0,.95);
+  animation:float 6.5s ease-in-out infinite;
+}
+@keyframes float{ 0%,100%{transform:translateY(0)} 50%{transform:translateY(-9px)} }
+.badge-card .n{ font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:26px;
+  line-height:1; letter-spacing:-.03em; color:#fff; }
+.badge-card .l{ font-size:11px; letter-spacing:.11em; text-transform:uppercase; color:var(--muted); margin-top:6px; line-height:1.4; }
+
+.hero-copy .quote-mark{
+  font-family:'Bricolage Grotesque',sans-serif; font-weight:800;
+  font-size:clamp(3.4rem,7vw,5rem); line-height:.6; color:var(--purple);
+  display:block; margin-bottom:6px; opacity:.85;
+}
+.hero-quote{
+  font-size:clamp(1.85rem,4.05vw,3.35rem);
+  line-height:1.1; letter-spacing:-.032em; margin-top:0;
+}
+.hero-attr{
+  margin-top:26px; display:flex; align-items:center; gap:12px;
+  font-size:14px; color:var(--muted);
+}
+.hero-attr .rule{ width:36px; height:1px; background:var(--line-2); flex:none; }
+.hero-attr strong{ color:var(--text); font-weight:600; }
+
+.hero-sub{ margin-top:26px; max-width:560px; }
+.hero-cta{ margin-top:34px; }
+
+.scroll-hint{
+  position:absolute; left:50%; bottom:26px; transform:translateX(-50%);
+  font-size:10.5px; letter-spacing:.22em; text-transform:uppercase; color:var(--muted-2);
+  display:flex; flex-direction:column; align-items:center; gap:9px;
+}
+.scroll-hint .bar{ width:1px; height:38px; background:linear-gradient(to bottom,var(--purple),transparent); }
+
+/* social rail */
+.rail{
+  position:fixed; right:20px; top:50%; transform:translateY(-50%); z-index:60;
+  display:flex; flex-direction:column; align-items:center; gap:14px;
+  opacity:0; transition:opacity .6s ease;
+}
+.rail.on{ opacity:1; }
+.rail .txt{ writing-mode:vertical-rl; font-size:10.5px; letter-spacing:.2em;
+  text-transform:uppercase; color:var(--muted-2); }
+.rail .ln{ width:1px; height:44px; background:var(--line-2); }
+.rail a{
+  width:33px; height:33px; border-radius:10px; display:grid; place-items:center;
+  background:rgba(124,77,255,.14); border:1px solid rgba(165,133,255,.2);
+  color:var(--purple-3);
+  transition:transform .35s var(--ease), background .35s ease, color .35s ease;
+}
+.rail a:hover{ transform:translateY(-3px); background:var(--purple); color:#fff; }
+.rail a svg{ width:15px; height:15px; }
+
+/* ============================================================
+   6. MARQUEE
+   ============================================================ */
+.marquee{
+  border-block:1px solid var(--line);
+  background:rgba(124,77,255,.045);
+  padding-block:20px; overflow:hidden;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent);
+}
+.marquee-track{ display:flex; width:max-content; animation:slide 34s linear infinite; }
+.marquee:hover .marquee-track{ animation-play-state:paused; }
+@keyframes slide{ to{ transform:translateX(-50%); } }
+.marquee-group{ display:flex; align-items:center; flex:none; }
+.marquee-group span{
+  font-family:'Bricolage Grotesque',sans-serif; font-weight:700;
+  font-size:clamp(.92rem,1.35vw,1.12rem); letter-spacing:-.01em;
+  padding-inline:24px; color:var(--muted); white-space:nowrap;
+}
+.marquee-group i{ width:5px; height:5px; border-radius:50%; background:var(--purple); flex:none; }
+
+/* ============================================================
+   7. LETTER (long-form)
+   ============================================================ */
+.letter{ position:relative; }
+.letter .narrow{ max-width:720px; }
+.salutation{
+  font-family:'Bricolage Grotesque',sans-serif; font-weight:700;
+  font-size:clamp(1.5rem,2.6vw,2rem); letter-spacing:-.025em; margin-bottom:8px;
+}
+.letter p{ font-size:clamp(1.03rem,1.28vw,1.16rem); line-height:1.82; color:#CFC8E4; }
+.letter p.beat{ color:var(--purple-3); font-style:italic; font-weight:500; }
+.letter p.punch{
+  color:var(--text); font-weight:600; font-size:clamp(1.16rem,1.65vw,1.42rem);
+  line-height:1.55; letter-spacing:-.015em;
+  font-family:'Bricolage Grotesque',sans-serif;
+}
+.letter hr{
+  border:0; height:1px; margin:44px 0;
+  background:linear-gradient(90deg,transparent,var(--line-2),transparent);
+}
+.pull{
+  margin:44px 0; padding:30px 34px;
+  border-left:2px solid var(--purple);
+  background:linear-gradient(100deg, rgba(124,77,255,.11), rgba(124,77,255,0) 78%);
+  border-radius:0 var(--r-md) var(--r-md) 0;
+}
+.pull p{ margin:0; font-family:'Bricolage Grotesque',sans-serif; font-weight:600;
+  font-size:clamp(1.14rem,1.7vw,1.4rem); line-height:1.48; letter-spacing:-.02em; color:var(--text); }
+
+.slots{
+  margin-top:44px; display:flex; align-items:center; gap:16px;
+  padding:20px 24px; border-radius:var(--r-md);
+  border:1px solid rgba(255,196,107,.22);
+  background:linear-gradient(100deg, rgba(255,196,107,.09), rgba(255,196,107,.02));
+}
+.slots .ico{ width:38px; height:38px; border-radius:11px; flex:none; display:grid; place-items:center;
+  background:rgba(255,196,107,.14); color:var(--gold); }
+.slots p{ margin:0; font-size:15px; color:#E7DFF5; line-height:1.6; }
+.slots strong{ color:var(--gold); font-weight:700; }
+
+/* ============================================================
+   8. ROI GAP BAND
+   ============================================================ */
+.band{
+  position:relative; overflow:hidden;
+  border-radius:var(--r-xl);
+  background:
+    radial-gradient(110% 130% at 12% 0%, rgba(255,255,255,.16) 0%, rgba(255,255,255,0) 55%),
+    linear-gradient(140deg, #6d3aff 0%, #5426d4 42%, #2f1290 100%);
+  padding:clamp(44px,6vw,84px);
+  box-shadow:0 50px 120px -50px rgba(109,58,255,.85);
+}
+.band::after{
+  content:''; position:absolute; inset:0; opacity:.09; pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n2'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n2)'/%3E%3C/svg%3E");
+}
+.band > *{ position:relative; z-index:2; }
+.band .eyebrow{ color:rgba(255,255,255,.82); }
+.band .eyebrow::before{ background:rgba(255,255,255,.6); }
+.band p{ color:rgba(255,255,255,.9); }
+.band .h-lg{ color:#fff; }
+
+/* ============================================================
+   9. TESTIMONIALS
+   ============================================================ */
+.tst-feature{
+  display:grid; grid-template-columns:minmax(0,.42fr) minmax(0,1fr);
+  gap:clamp(28px,4vw,56px); align-items:center;
+  padding:clamp(30px,4vw,52px);
+  border-radius:var(--r-lg); border:1px solid var(--line);
+  background:linear-gradient(150deg, rgba(124,77,255,.13) 0%, rgba(18,12,34,.6) 55%);
+  backdrop-filter:blur(10px);
+}
+.tst-photo{
+  aspect-ratio:1/1.12; border-radius:var(--r-md); overflow:hidden;
+  background:linear-gradient(155deg,var(--purple),#34158f);
+  box-shadow:0 30px 70px -30px rgba(0,0,0,.9);
+}
+.tst-photo img{ width:100%; height:100%; object-fit:cover; }
+.tst-quote{
+  font-family:'Bricolage Grotesque',sans-serif; font-weight:600;
+  font-size:clamp(1.16rem,2.05vw,1.62rem); line-height:1.5; letter-spacing:-.022em;
+  color:var(--text); margin:0;
+}
+.tst-quote .hl{ color:var(--purple-2); }
+.tst-meta{ margin-top:26px; display:flex; align-items:center; gap:13px; }
+.tst-meta .n{ font-weight:700; font-size:15.5px; color:#fff; letter-spacing:-.01em; }
+.tst-meta .r{ font-size:13px; color:var(--muted); margin-top:1px; }
+.stars{ display:flex; gap:3px; margin-bottom:16px; color:var(--gold); }
+.stars svg{ width:16px; height:16px; }
+
+.tst-grid{
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:clamp(16px,2vw,24px);
+}
+.tst-card{
+  padding:30px; border-radius:var(--r-md);
+  border:1px solid var(--line); background:rgba(255,255,255,.028);
+  transition:transform .5s var(--ease), border-color .5s var(--ease), background .5s var(--ease);
+}
+.tst-card:hover{ transform:translateY(-5px); border-color:rgba(165,133,255,.34); background:rgba(124,77,255,.07); }
+.tst-card p{ font-size:15px; color:#CFC8E4; line-height:1.7; }
+.tst-card .av{
+  width:44px; height:44px; border-radius:50%; overflow:hidden; flex:none;
+  background:linear-gradient(150deg,var(--purple),#34158f);
+}
+.tst-card .av img{ width:100%; height:100%; object-fit:cover; }
+.tst-meta .av{
+  width:46px; height:46px; border-radius:50%; overflow:hidden; flex:none;
+  background:linear-gradient(150deg,var(--purple),#34158f);
+}
+.tst-meta .av img{ width:100%; height:100%; object-fit:cover; }
+
+/* ============================================================
+   10. SERVICES
+   ============================================================ */
+.svc-grid{
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:clamp(16px,1.8vw,22px);
+}
+.svc{
+  position:relative; overflow:hidden;
+  padding:clamp(28px,3vw,38px); border-radius:var(--r-lg);
+  border:1px solid var(--line);
+  background:linear-gradient(165deg, rgba(255,255,255,.045), rgba(255,255,255,.014));
+  transition:transform .55s var(--ease), border-color .55s var(--ease);
+}
+.svc::before{
+  content:''; position:absolute; inset:0; opacity:0; transition:opacity .55s ease;
+  background:radial-gradient(90% 70% at 50% 0%, rgba(124,77,255,.24), transparent 70%);
+  pointer-events:none;
+}
+.svc:hover{ transform:translateY(-7px); border-color:rgba(165,133,255,.36); }
+.svc:hover::before{ opacity:1; }
+.svc > *{ position:relative; z-index:2; }
+.svc .num{
+  font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:13px;
+  letter-spacing:.06em; color:var(--purple-2);
+  display:inline-flex; align-items:center; justify-content:center;
+  width:38px; height:38px; border-radius:12px;
+  background:rgba(124,77,255,.16); border:1px solid rgba(165,133,255,.24);
+  margin-bottom:22px;
+}
+.svc h3{ font-size:clamp(1.2rem,1.75vw,1.42rem); letter-spacing:-.025em; }
+.svc p{ margin-top:13px; font-size:15px; color:var(--muted); line-height:1.72; }
+.svc .arrow{
+  position:absolute; top:clamp(28px,3vw,38px); right:clamp(28px,3vw,38px);
+  color:var(--purple-2); opacity:0; transform:translate(-6px,6px);
+  transition:opacity .5s var(--ease), transform .5s var(--ease);
+}
+.svc:hover .arrow{ opacity:1; transform:none; }
+
+/* ============================================================
+   11. PROCESS
+   ============================================================ */
+.steps{ display:grid; gap:0; position:relative; }
+.step{
+  display:grid; grid-template-columns:auto minmax(0,1fr);
+  gap:clamp(20px,3vw,40px); align-items:start;
+  padding-block:clamp(26px,3.4vw,40px);
+  border-bottom:1px solid var(--line);
+  transition:background .5s ease;
+}
+.step:first-child{ border-top:1px solid var(--line); }
+.step:hover{ background:linear-gradient(90deg, rgba(124,77,255,.07), transparent 60%); }
+.step .idx{
+  font-family:'Bricolage Grotesque',sans-serif; font-weight:800;
+  font-size:clamp(2.1rem,4.4vw,3.3rem); line-height:.9; letter-spacing:-.05em;
+  color:transparent; -webkit-text-stroke:1.4px rgba(165,133,255,.5);
+  min-width:clamp(58px,7vw,104px); transition:color .5s ease, -webkit-text-stroke-color .5s ease;
+}
+.step:hover .idx{ color:var(--purple-2); -webkit-text-stroke-color:transparent; }
+.step h3{ font-size:clamp(1.28rem,2.4vw,1.85rem); letter-spacing:-.028em; }
+.step p{ margin-top:11px; font-size:15.5px; color:var(--muted); line-height:1.72; max-width:640px; }
+
+/* ============================================================
+   12. WHY / SPLIT
+   ============================================================ */
+.split{
+  display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  gap:clamp(34px,5vw,76px); align-items:center;
+}
+.split.rev .split-media{ order:2; }
+.split-media{
+  position:relative; border-radius:var(--r-lg); overflow:hidden;
+  aspect-ratio:4/3.2;
+  background:linear-gradient(160deg, var(--purple) 0%, #34158f 100%);
+  box-shadow:0 44px 100px -44px rgba(90,43,216,.85);
+  border:1px solid rgba(165,133,255,.2);
+}
+.split-media img{ width:100%; height:100%; object-fit:cover; }
+.split-media::after{
+  content:''; position:absolute; inset:0; pointer-events:none;
+  background:linear-gradient(to top, rgba(10,4,32,.5), transparent 55%);
+}
+.checks{ margin-top:30px; display:grid; gap:15px; }
+.checks li{ display:flex; gap:13px; align-items:flex-start; list-style:none;
+  font-size:15.5px; color:#CFC8E4; line-height:1.62; }
+.checks{ padding:0; }
+.checks .tick{
+  width:22px; height:22px; border-radius:50%; flex:none; margin-top:2px;
+  display:grid; place-items:center; background:rgba(124,77,255,.2);
+  border:1px solid rgba(165,133,255,.32); color:var(--purple-2);
+}
+.checks .tick svg{ width:11px; height:11px; }
+
+/* ============================================================
+   13. WORK / VIDEO GRID
+   ============================================================ */
+.work-grid{
+  display:grid; grid-template-columns:repeat(auto-fill,minmax(min(100%,330px),1fr));
+  gap:clamp(18px,2.2vw,28px);
+}
+.vcard{
+  cursor:pointer; border:0; padding:0; background:none; text-align:left;
+  display:block; width:100%;
+  transition:transform .55s var(--ease);
+}
+.vcard:hover{ transform:translateY(-8px); }
+.vthumb{
+  position:relative; aspect-ratio:16/9; border-radius:var(--r-md); overflow:hidden;
+  background:linear-gradient(150deg,#2a1a54,#150c2e);
+  border:1px solid var(--line);
+  box-shadow:0 24px 60px -30px rgba(0,0,0,.95);
+  transition:border-color .5s var(--ease), box-shadow .5s var(--ease);
+}
+.vcard:hover .vthumb{ border-color:rgba(165,133,255,.5); box-shadow:0 34px 74px -30px rgba(124,77,255,.6); }
+.vthumb img{
+  width:100%; height:100%; object-fit:cover;
+  transition:transform .8s var(--ease), filter .6s ease;
+  filter:saturate(.94);
+}
+.vcard:hover .vthumb img{ transform:scale(1.07); filter:saturate(1.06); }
+.vthumb::after{
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(to top, rgba(8,4,24,.75) 0%, rgba(8,4,24,.05) 52%);
+  transition:opacity .5s ease;
+}
+.play{
+  position:absolute; left:50%; top:50%; transform:translate(-50%,-50%) scale(.88);
+  width:60px; height:60px; border-radius:50%; z-index:3;
+  display:grid; place-items:center;
+  background:rgba(255,255,255,.14); backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,.35); color:#fff;
+  opacity:.9; transition:transform .55s var(--ease), background .4s ease, opacity .4s ease;
+}
+.vcard:hover .play{ transform:translate(-50%,-50%) scale(1); background:var(--purple); border-color:var(--purple-2); opacity:1; }
+.play svg{ width:19px; height:19px; margin-left:3px; }
+
+.vtag{
+  position:absolute; left:14px; top:14px; z-index:3;
+  padding:6px 12px; border-radius:100px; font-size:11px; font-weight:700;
+  letter-spacing:.08em; text-transform:uppercase;
+  background:rgba(10,5,28,.72); backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,.16); color:var(--purple-3);
+}
+.vmeta{ padding:18px 4px 0; }
+.vmeta .vtitle{
+  display:block;
+  font-family:'Bricolage Grotesque','Inter',sans-serif; font-weight:800;
+  font-size:1.06rem; letter-spacing:-.022em; line-height:1.32; color:var(--text);
+}
+.vmeta .sub{ margin-top:8px; font-size:13.5px; color:var(--muted); display:flex; align-items:center; gap:9px; flex-wrap:wrap; }
+.vmeta .sub .dot{ width:3px; height:3px; border-radius:50%; background:var(--muted-2); flex:none; }
+.vmeta .res{ color:var(--purple-2); font-weight:600; }
+
+/* placeholder state when a thumbnail can't load */
+.vthumb.ph{ display:grid; place-items:center; }
+.vthumb.ph img{ display:none; }
+.vthumb.ph::before{
+  content:'Paste your YouTube link'; position:absolute; z-index:4;
+  bottom:16px; left:0; right:0; text-align:center;
+  font-size:11.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--purple-3);
+}
+
+/* ============================================================
+   14. PROOF / RESULTS
+   ============================================================ */
+.proof-grid{
+  display:grid; grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));
+  gap:clamp(16px,2vw,24px);
+}
+.shot{
+  position:relative; border-radius:var(--r-md); overflow:hidden;
+  border:1px solid var(--line); background:linear-gradient(150deg,#221547,#130b28);
+  aspect-ratio:16/11; cursor:zoom-in;
+  transition:transform .55s var(--ease), border-color .5s var(--ease);
+}
+.shot:hover{ transform:translateY(-6px); border-color:rgba(165,133,255,.45); }
+.shot img{ width:100%; height:100%; object-fit:cover; }
+.shot .cap{
+  position:absolute; left:0; right:0; bottom:0; z-index:3; padding:16px 18px;
+  background:linear-gradient(to top, rgba(8,4,24,.9), transparent);
+  font-size:13px; color:#E4DDF3; font-weight:500;
+}
+.shot.ph::before{
+  content:'Cloudinary screenshot'; position:absolute; inset:0; z-index:2;
+  display:grid; place-items:center;
+  font-size:11.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--purple-3);
+}
+
+.stat-row{
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:1px; background:var(--line);
+  border:1px solid var(--line); border-radius:var(--r-lg); overflow:hidden;
+  margin-top:clamp(34px,4vw,56px);
+}
+.stat{ background:var(--bg-2); padding:clamp(26px,3vw,36px); text-align:center; }
+.stat .n{
+  font-family:'Bricolage Grotesque',sans-serif; font-weight:800;
+  font-size:clamp(2rem,3.6vw,2.9rem); letter-spacing:-.045em; line-height:1;
+  background:linear-gradient(150deg,#fff,var(--purple-2));
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+}
+.stat .l{ margin-top:11px; font-size:12.5px; letter-spacing:.09em; text-transform:uppercase; color:var(--muted); line-height:1.5; }
+
+/* ============================================================
+   15. MEET ANANDA (shaded box)
+   ============================================================ */
+.story{
+  position:relative; overflow:hidden;
+  border-radius:var(--r-xl); border:1px solid rgba(165,133,255,.18);
+  background:
+    radial-gradient(90% 60% at 100% 0%, rgba(124,77,255,.18) 0%, transparent 60%),
+    linear-gradient(165deg, rgba(30,19,56,.9) 0%, rgba(12,8,24,.9) 100%);
+  padding:clamp(34px,5vw,76px);
+  box-shadow:0 50px 120px -60px rgba(0,0,0,1);
+}
+.story-head{
+  display:grid; grid-template-columns:minmax(0,.4fr) minmax(0,1fr);
+  gap:clamp(28px,4vw,54px); align-items:center;
+  margin-bottom:clamp(34px,4vw,52px);
+}
+.story-photo{
+  aspect-ratio:1/1.15; border-radius:var(--r-md); overflow:hidden;
+  background:linear-gradient(155deg,var(--purple),#2b1180);
+  box-shadow:0 30px 70px -32px rgba(0,0,0,.95);
+  border:1px solid rgba(165,133,255,.2);
+}
+.story-photo img{ width:100%; height:100%; object-fit:cover; }
+.story-body{ max-width:760px; }
+.story-body p{ font-size:clamp(1rem,1.22vw,1.1rem); line-height:1.82; color:#CFC8E4; }
+.story-body p.hi{ color:var(--purple-3); font-style:italic; }
+.story-body p.strong{ color:var(--text); font-weight:600; }
+.story-marks{
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:14px; margin:38px 0;
+}
+.mark{
+  padding:20px 22px; border-radius:var(--r-sm);
+  background:rgba(124,77,255,.09); border:1px solid rgba(165,133,255,.16);
+}
+.mark .n{ font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:1.5rem;
+  letter-spacing:-.035em; color:#fff; line-height:1; }
+.mark .l{ margin-top:8px; font-size:12px; color:var(--muted); line-height:1.5; }
+
+/* ============================================================
+   16. FAQ
+   ============================================================ */
+.faq{ border-top:1px solid var(--line); }
+.faq-item{ border-bottom:1px solid var(--line); }
+.faq-q{
+  width:100%; background:none; border:0; cursor:pointer;
+  display:flex; align-items:flex-start; justify-content:space-between; gap:24px;
+  padding:clamp(22px,2.6vw,32px) 0; text-align:left;
+  font-family:'Bricolage Grotesque',sans-serif; font-weight:700;
+  font-size:clamp(1.06rem,1.85vw,1.35rem); letter-spacing:-.024em; line-height:1.35;
+  color:var(--text); transition:color .35s ease;
+}
+.faq-q:hover{ color:var(--purple-2); }
+.faq-ico{
+  width:32px; height:32px; border-radius:50%; flex:none; margin-top:-2px;
+  display:grid; place-items:center; position:relative;
+  border:1px solid var(--line-2); transition:background .4s var(--ease), border-color .4s ease, transform .5s var(--ease);
+}
+.faq-ico::before,.faq-ico::after{
+  content:''; position:absolute; background:currentColor; border-radius:2px;
+  transition:transform .45s var(--ease), opacity .3s ease;
+}
+.faq-ico::before{ width:12px; height:1.7px; }
+.faq-ico::after{ width:1.7px; height:12px; }
+.faq-item.open .faq-ico{ background:var(--purple); border-color:var(--purple); color:#fff; transform:rotate(90deg); }
+.faq-item.open .faq-ico::after{ opacity:0; }
+.faq-a{ overflow:hidden; height:0; transition:height .5s var(--ease); }
+.faq-a-in{ padding-bottom:clamp(22px,2.6vw,32px); max-width:760px; }
+.faq-a p{ font-size:15.5px; color:var(--muted); line-height:1.78; }
+
+/* ============================================================
+   17. BOOKING
+   ============================================================ */
+.book{ position:relative; }
+.book-shell{
+  border-radius:var(--r-xl); overflow:hidden;
+  border:1px solid rgba(165,133,255,.2);
+  background:
+    radial-gradient(80% 70% at 50% 0%, rgba(124,77,255,.24) 0%, transparent 62%),
+    linear-gradient(170deg, rgba(26,16,50,.94), rgba(9,6,20,.94));
+  padding:clamp(34px,5vw,72px);
+  box-shadow:0 60px 140px -60px rgba(124,77,255,.55);
+}
+#calendly-embed{
+  margin-top:clamp(30px,4vw,44px);
+  min-height:700px; border-radius:var(--r-lg); overflow:hidden;
+  background:#fff;
+}
+#calendly-embed.pending{
+  background:rgba(255,255,255,.03);
+  border:1px dashed rgba(165,133,255,.32);
+  min-height:340px; display:grid; place-items:center; text-align:center; padding:34px;
+}
+.cal-ph .ico{
+  width:56px; height:56px; border-radius:18px; margin:0 auto 20px; display:grid; place-items:center;
+  background:rgba(124,77,255,.18); border:1px solid rgba(165,133,255,.3); color:var(--purple-2);
+}
+.cal-ph h3{ font-size:1.24rem; letter-spacing:-.025em; }
+.cal-ph p{ margin-top:12px; font-size:14.5px; color:var(--muted); max-width:460px; margin-inline:auto; }
+.cal-ph code{
+  display:inline-block; margin-top:16px; padding:9px 14px; border-radius:9px;
+  background:rgba(124,77,255,.14); border:1px solid rgba(165,133,255,.24);
+  font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:12.5px; color:var(--purple-3);
+  word-break:break-all;
+}
+
+/* ============================================================
+   18. FOOTER
+   ============================================================ */
+.footer{ border-top:1px solid var(--line); padding-block:clamp(50px,6vw,72px) 34px; margin-top:clamp(60px,8vw,110px); }
+.foot-top{
+  display:flex; flex-wrap:wrap; gap:34px; justify-content:space-between; align-items:flex-start;
+  padding-bottom:40px; border-bottom:1px solid var(--line);
+}
+.foot-quote{
+  font-family:'Bricolage Grotesque',sans-serif; font-weight:700;
+  font-size:clamp(1.4rem,3vw,2.1rem); letter-spacing:-.03em; line-height:1.22;
+  max-width:600px;
+}
+.foot-links{ display:flex; flex-wrap:wrap; gap:26px; }
+.foot-col h4{ font-size:11.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--muted-2);
+  font-family:'Inter',sans-serif; font-weight:600; margin-bottom:14px; }
+.foot-col a{ display:block; font-size:14.5px; color:var(--muted); padding:5px 0; transition:color .3s ease; }
+.foot-col a:hover{ color:var(--purple-2); }
+.foot-bot{
+  display:flex; flex-wrap:wrap; gap:16px; justify-content:space-between; align-items:center;
+  padding-top:28px; font-size:13px; color:var(--muted-2);
+}
+.foot-social{ display:flex; gap:10px; }
+.foot-social a{
+  width:36px; height:36px; border-radius:11px; display:grid; place-items:center;
+  background:rgba(255,255,255,.04); border:1px solid var(--line); color:var(--muted);
+  transition:all .35s var(--ease);
+}
+.foot-social a:hover{ background:var(--purple); color:#fff; border-color:var(--purple); transform:translateY(-2px); }
+.foot-social svg{ width:16px; height:16px; }
+
+/* ============================================================
+   19. LIGHTBOX
+   ============================================================ */
+.lb{
+  position:fixed; inset:0; z-index:200; display:grid; place-items:center;
+  padding:clamp(16px,4vw,48px);
+  background:rgba(4,2,12,.94); backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px);
+  opacity:0; visibility:hidden; transition:opacity .4s ease, visibility .4s;
+}
+.lb.on{ opacity:1; visibility:visible; }
+.lb-box{
+  width:100%; max-width:1120px; border-radius:var(--r-md); overflow:hidden;
+  background:#000; box-shadow:0 50px 120px -30px rgba(0,0,0,1);
+  transform:scale(.965); transition:transform .5s var(--ease);
+}
+.lb.on .lb-box{ transform:none; }
+.lb-box.img-mode{ background:transparent; max-width:1200px; }
+.lb-frame{ position:relative; aspect-ratio:16/9; }
+.lb-frame iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; }
+.lb-box img{ width:100%; height:auto; border-radius:var(--r-md); }
+.lb-close{
+  position:absolute; top:clamp(14px,2.4vw,28px); right:clamp(14px,2.4vw,28px);
+  width:46px; height:46px; border-radius:50%; cursor:pointer; z-index:5;
+  background:rgba(255,255,255,.1); border:1px solid var(--line-2); color:#fff;
+  display:grid; place-items:center; transition:background .3s ease, transform .3s var(--ease);
+}
+.lb-close:hover{ background:var(--purple); transform:rotate(90deg); }
+.lb-cap{
+  margin-top:16px; text-align:center; font-size:14px; color:var(--muted);
+}
+
+/* ============================================================
+   20. REVEAL
+   ============================================================ */
+.rv{ opacity:0; transform:translateY(26px); transition:opacity .85s var(--ease), transform .85s var(--ease); }
+.rv.in{ opacity:1; transform:none; }
+.rv-d1{ transition-delay:.08s } .rv-d2{ transition-delay:.16s }
+.rv-d3{ transition-delay:.24s } .rv-d4{ transition-delay:.32s }
+.rv-d5{ transition-delay:.4s }  .rv-d6{ transition-delay:.48s }
+
+@media (prefers-reduced-motion: reduce){
+  .rv{ opacity:1; transform:none; transition:none; }
+  .marquee-track,.badge-card{ animation:none; }
+  *{ transition-duration:.01ms !important; animation-duration:.01ms !important; }
+}
+
+/* ============================================================
+   21. RESPONSIVE
+   ============================================================ */
+@media (max-width:1140px){
+  .nav-links{ display:none; }
+  .burger{ display:block; }
+  .nav-cta .btn{ display:none; }
+  .rail{ display:none; }
+}
+@media (max-width:960px){
+  .hero{ min-height:auto; }
+  .hero-grid{ grid-template-columns:1fr; gap:38px; }
+  .hero-media{ order:2; max-width:420px; }
+  .hero-copy{ order:1; }
+  .portrait{ aspect-ratio:4/4.2; }
+  .split{ grid-template-columns:1fr; gap:34px; }
+  .split.rev .split-media{ order:0; }
+  .tst-feature{ grid-template-columns:1fr; }
+  .tst-photo{ max-width:280px; aspect-ratio:1/1; }
+  .story-head{ grid-template-columns:1fr; }
+  .story-photo{ max-width:300px; aspect-ratio:1/1; }
+  .scroll-hint{ display:none; }
+}
+@media (max-width:640px){
+  body{ line-height:1.68; }
+  .d-br{ display:none; }
+  .brand-name span{ display:none; }
+  .nav-inner{ padding-left:16px; }
+  .badge-card{ right:0; bottom:16px; padding:12px 15px; }
+  .badge-card .n{ font-size:21px; }
+  .step{ grid-template-columns:1fr; gap:10px; }
+  .step .idx{ font-size:2rem; }
+  .pull{ padding:22px 22px; margin:34px 0; }
+  .btn{ padding:16px 24px; font-size:14.5px; }
+  .btn.big{ padding:18px 28px; font-size:15px; }
+  .cta-row .btn{ width:100%; }
+  .foot-links{ gap:30px; }
+  .vmeta{ padding-inline:0; }
+  #calendly-embed{ min-height:640px; }
+}
+@media (max-width:400px){
+  .stat-row{ grid-template-columns:1fr; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="progress" id="progress"></div>
+
+<div class="fx" aria-hidden="true">
+  <div class="orb a"></div>
+  <div class="orb b"></div>
+  <div class="orb c"></div>
+</div>
+<div class="spot" id="spot" aria-hidden="true"></div>
+
+<!-- ============================================================
+     NAV
+     ============================================================ -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#top" class="brand" aria-label="Ananda Paramanick — home">
+      <span class="mono">AP</span>
+      <span class="brand-name">Ananda Paramanick<span>Founder &amp; Lead Editor</span></span>
+    </a>
+
+    <nav class="nav-links" id="navLinks" aria-label="Main">
+      <a href="#services">Services</a>
+      <a href="#process">How It Works</a>
+      <a href="#work">Work</a>
+      <a href="#results">Results</a>
+      <a href="#about">About</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+
+    <div class="nav-cta">
+      <a href="#book" class="btn" data-cta>
+        Book a Free Growth Audit
+      </a>
+      <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+        <i></i><i></i><i></i>
+      </button>
+    </div>
+  </div>
+</header>
+
+<nav class="mobile-menu" id="mobileMenu" aria-label="Mobile">
+  <a class="m-link" href="#services">Services</a>
+  <a class="m-link" href="#process">How It Works</a>
+  <a class="m-link" href="#work">Work</a>
+  <a class="m-link" href="#results">Results</a>
+  <a class="m-link" href="#about">About</a>
+  <a class="m-link" href="#faq">FAQ</a>
+  <a href="#book" class="btn big" data-cta>Book a Free Growth Audit</a>
+</nav>
+
+<!-- social rail (desktop) -->
+<aside class="rail" id="rail" aria-label="Social links">
+  <span class="txt">Follow me on</span>
+  <span class="ln"></span>
+  <!-- REPLACE: your real social URLs -->
+  <a href="https://youtube.com/@REPLACE" target="_blank" rel="noopener" aria-label="YouTube">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8ZM9.6 15.6V8.4l6.2 3.6-6.2 3.6Z"/></svg>
+  </a>
+  <a href="https://linkedin.com/in/REPLACE" target="_blank" rel="noopener" aria-label="LinkedIn">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.4 20.4h-3.6v-5.6c0-1.3 0-3-1.9-3s-2.1 1.4-2.1 2.9v5.7H9.2V9h3.4v1.6h.1c.5-.9 1.7-1.9 3.4-1.9 3.6 0 4.3 2.4 4.3 5.5v6.2ZM5.3 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2ZM7.1 20.4H3.5V9h3.6v11.4Z"/></svg>
+  </a>
+  <a href="https://instagram.com/REPLACE" target="_blank" rel="noopener" aria-label="Instagram">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.3 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.3 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.3-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.3-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4 1.3-.1 1.7-.1 4.9-.1Zm0 5.8a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm0 6.6a2.6 2.6 0 1 1 0-5.2 2.6 2.6 0 0 1 0 5.2Zm5.1-6.8a.94.94 0 1 1-1.88 0 .94.94 0 0 1 1.88 0Z"/></svg>
+  </a>
+</aside>
+
+<main id="top">
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+
+      <div class="hero-media rv">
+        <div class="portrait">
+          <div class="portrait-frame">
+            <!-- REPLACE: Cloudinary URL — Ananda headshot, portrait crop, min 900px wide -->
+            <img src="REPLACE_WITH_CLOUDINARY_HEADSHOT" alt="Ananda Paramanick, founder and lead editor" />
+          </div>
+          <div class="badge-card">
+            <div class="n">+15K<span style="font-size:14px;color:var(--purple-2)">/wk</span></div>
+            <div class="l">Subscribers added<br>for a current client</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-copy">
+        <span class="eyebrow dot rv">Content Creators</span>
+
+        <span class="quote-mark rv rv-d1" aria-hidden="true">&ldquo;</span>
+        <h1 class="hero-quote rv rv-d1">
+          The algorithm doesn&rsquo;t reward talent.<br class="d-br">
+          It rewards <span class="grad">the editor who knows how to best showcase that talent.</span>
+        </h1>
+
+        <div class="hero-attr rv rv-d2">
+          <span class="rule"></span>
+          <span><strong>Ananda Paramanick</strong> &middot; Founder &amp; Lead Editor</span>
+        </div>
+
+        <p class="lead hero-sub rv rv-d3">
+          Editing, SEO, thumbnails, titles and uploads &mdash; all engineered to give the algorithm a reason to push your work. Founder-led, on every single account.
+        </p>
+
+        <div class="cta-row hero-cta rv rv-d4">
+          <a href="#book" class="btn big" data-cta>
+            Book a Free Growth Audit
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+          </a>
+          <a href="#work" class="btn ghost big">See actual client work</a>
+        </div>
+
+        <div class="cta-note rv rv-d5">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold)"><path d="M12 2 15 9l7 .6-5.3 4.6L18.3 21 12 17.3 5.7 21l1.6-6.8L2 9.6 9 9z"/></svg>
+          No pitch, no obligation. Worst case, you walk away with a map of exactly what&rsquo;s holding your channel back.
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="scroll-hint" aria-hidden="true">
+    <span>Scroll</span>
+    <span class="bar"></span>
+  </div>
+</section>
+
+<!-- ============================================================
+     MARQUEE
+     ============================================================ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track" id="marquee">
+    <div class="marquee-group">
+      <span>Editing</span><i></i>
+      <span>Retention</span><i></i>
+      <span>SEO</span><i></i>
+      <span>Thumbnails</span><i></i>
+      <span>Titles</span><i></i>
+      <span>Metadata</span><i></i>
+      <span>Uploads</span><i></i>
+      <span>Scheduling</span><i></i>
+      <span>Branding</span><i></i>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     LETTER
+     ============================================================ -->
+<section class="section letter">
+  <div class="wrap">
+    <div class="narrow">
+
+      <p class="salutation rv">Dear Creator,</p>
+      <p class="beat rv rv-d1">Put yourself in this picture&hellip;</p>
+
+      <p class="rv rv-d1">
+        Imagine your channel running the way it was meant to be. Uploads land on schedule, sharp and scroll-stopping, without a frantic weekend of editing behind them. The subscriber count climbs&hellip;not in random spikes, but in that steady upward line that tells you something real is being built.
+      </p>
+
+      <p class="beat rv">
+        Comments roll in from people who don&rsquo;t just watch, they eagerly wait for your next episode.
+      </p>
+
+      <p class="rv">
+        The analytics stop being a source of anxiety and become your favorite thing to read all week.
+      </p>
+
+      <p class="rv">
+        Then the emails come: brand deals, sponsorships, and collaborators who want to align with you.
+      </p>
+
+      <p class="rv">
+        Monetization stops being a &ldquo;someday&rdquo; and becomes real cashflow that grows every month. And underneath all of it, the main thing that matters&hellip;
+      </p>
+
+      <div class="pull rv">
+        <p>Loyal subscribers who feel like they know you, root for you, and show up because your work is worth showing up for.</p>
+      </div>
+
+      <p class="punch rv">
+        This is not some lucky creator&rsquo;s fantasy. This is what your channel can look like when you finally have the right team behind you.
+      </p>
+
+      <hr class="rv">
+
+      <p class="rv">
+        Most creators hand their footage to the cheapest editor they can find and hope for the best. Savvy creators know that the success of their channel relies on the team that handles the episode after it gets recorded. <span class="em">If you&rsquo;re in the first group, no need to read further.</span>
+      </p>
+
+      <p class="beat rv">
+        But if you&rsquo;re truly serious about scaling and monetizing your channel successfully, <span class="em">Ananda Paramanick</span> and his team can deliver exactly what you need.
+      </p>
+
+      <p class="rv">
+        As founder and lead editor, Ananda personally shapes the craft behind every channel his agency works with: editing, SEO, thumbnails, titles, and uploads. All engineered to give the algorithm a reason to push your work.
+      </p>
+
+      <div class="slots rv">
+        <span class="ico">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        </span>
+        <p>Because Ananda personally leads every account, this means he only takes on a handful of new channels. <strong>When the slots are full, they&rsquo;re full.</strong></p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     THE ROI GAP
+     ============================================================ -->
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="band rv">
+      <div style="max-width:820px">
+        <span class="eyebrow">The ROI Gap</span>
+        <h2 class="h-lg" style="margin-top:22px">
+          Your content should build your brand and create real sales.
+        </h2>
+        <p class="lead" style="margin-top:24px; color:rgba(255,255,255,.86); max-width:620px">
+          Otherwise, it&rsquo;s an expensive time suck. Ananda will align your visuals, retention, and branding to engineer growth.
+        </p>
+        <div class="cta-row" style="margin-top:36px">
+          <a href="#book" class="btn light big" data-cta>
+            Book a Free Growth Audit
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FEATURED TESTIMONIAL — Randy Gage
+     ============================================================ -->
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+
+    <div class="tst-feature rv">
+      <div class="tst-photo">
+        <!-- REPLACE: Cloudinary URL — Randy Gage headshot -->
+        <img src="REPLACE_WITH_CLOUDINARY_RANDY_GAGE_HEADSHOT" alt="Randy Gage" />
+      </div>
+      <div>
+        <div class="stars" aria-label="5 out of 5">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.9 7.5.6-5.7 4.9 1.7 7.3L12 17.8 5.5 21.7l1.7-7.3L1.5 9.5 9 8.9z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.9 7.5.6-5.7 4.9 1.7 7.3L12 17.8 5.5 21.7l1.7-7.3L1.5 9.5 9 8.9z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.9 7.5.6-5.7 4.9 1.7 7.3L12 17.8 5.5 21.7l1.7-7.3L1.5 9.5 9 8.9z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.9 7.5.6-5.7 4.9 1.7 7.3L12 17.8 5.5 21.7l1.7-7.3L1.5 9.5 9 8.9z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.9 7.5.6-5.7 4.9 1.7 7.3L12 17.8 5.5 21.7l1.7-7.3L1.5 9.5 9 8.9z"/></svg>
+        </div>
+        <blockquote class="tst-quote">
+          &ldquo;I don&rsquo;t hand my brand to just anyone and I don&rsquo;t give praise just to be polite. Ananda&rsquo;s earned both. He&rsquo;s a mad genius, and he treats my channel like it&rsquo;s his own. Ananda&rsquo;s work is brilliant, and he always meets deadlines. Rare combination. <span class="hl">We&rsquo;re adding 15k subscribers a week right now, thanks to his help.</span>&rdquo;
+        </blockquote>
+        <div class="tst-meta">
+          <span class="av">
+            <!-- REPLACE: Cloudinary URL — Randy Gage avatar (square) -->
+            <img src="REPLACE_WITH_CLOUDINARY_RANDY_GAGE_AVATAR" alt="" />
+          </span>
+          <span>
+            <span class="n">Randy Gage</span>
+            <span class="r">Founder, Breakthrough U Entrepreneur Accelerator</span>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Testimonial 2 -->
+    <div class="tst-grid" style="margin-top:24px">
+      <div class="tst-card rv rv-d1">
+        <div class="stars" aria-label="5 out of 5">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.9 7.5.6-5.7 4.9 1.7 7.3L12 17.8 5.5 21.7l1.7-7.3L1.5 9.5 9 8.9z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.9 7.5.6-5.7 4.9 1.7 7.3L12 17.8 5.5 21.7l1.7-7.3L1.5 9.5 9 8.9z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.9 7.5.6-5.7 4.9 1.7 7.3L12 17.8 5.5 21.7l1.7-7.3L1.5 9.5 9 8.9z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.9 7.5.6-5.7 4.9 1.7 7.3L12 17.8 5.5 21.7l1.7-7.3L1.5 9.5 9 8.9z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.9 7.5.6-5.7 4.9 1.7 7.3L12 17.8 5.5 21.7l1.7-7.3L1.5 9.5 9 8.9z"/></svg>
+        </div>
+        <!-- REPLACE: Testimonial 2 quote -->
+        <p>&ldquo;REPLACE &mdash; paste testimonial 2 here. Keep the strongest, most specific sentence at the end so it lands.&rdquo;</p>
+        <div class="tst-meta" style="margin-top:20px">
+          <span class="av">
+            <!-- REPLACE: Cloudinary URL — testimonial 2 headshot -->
+            <img src="REPLACE_WITH_CLOUDINARY_TESTIMONIAL_2" alt="" />
+          </span>
+          <span>
+            <span class="n">Client Name</span>
+            <span class="r">Title, Channel</span>
+          </span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     SERVICES
+     ============================================================ -->
+<section class="section" id="services">
+  <div class="wrap">
+
+    <div class="sec-head center">
+      <span class="eyebrow center rv">The Full Back End</span>
+      <h2 class="h-lg rv rv-d1">What Ananda and his team<br>can do for you</h2>
+    </div>
+
+    <div class="svc-grid">
+
+      <article class="svc rv">
+        <span class="arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+        <span class="num">01</span>
+        <h3>Building Your Signal</h3>
+        <p>Helping you develop a brand that your market falls in love with and remembers.</p>
+      </article>
+
+      <article class="svc rv rv-d1">
+        <span class="arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+        <span class="num">02</span>
+        <h3>Editing that Seizes Attention</h3>
+        <p>Retention is the currency the algorithm actually spends. Ananda cuts for the watch-through, not just the highlight reel &mdash; so viewers stay, and YouTube notices.</p>
+      </article>
+
+      <article class="svc rv rv-d2">
+        <span class="arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+        <span class="num">03</span>
+        <h3>SEO that Gets You Found</h3>
+        <p>Great videos die in the dark every day. Ananda&rsquo;s team engineers titles, tags, descriptions, and metadata so the right audience finds you on purpose, not by accident.</p>
+      </article>
+
+      <article class="svc rv">
+        <span class="arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+        <span class="num">04</span>
+        <h3>Neck-Snapping Thumbnails</h3>
+        <p>The law of social media is simple: If they don&rsquo;t click, they can&rsquo;t watch. Ananda&rsquo;s team designs the frame that earns the click.</p>
+      </article>
+
+      <article class="svc rv rv-d1">
+        <span class="arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+        <span class="num">05</span>
+        <h3>Titles that Pop</h3>
+        <p>Ananda will work with you to develop the headline that pulls people in and delivers&hellip;because a bait-and-switch title trains the algorithm to bury you.</p>
+      </article>
+
+      <article class="svc rv rv-d2">
+        <span class="arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+        <span class="num">06</span>
+        <h3>Uploading and Scheduling</h3>
+        <p>Your job is to create. Ananda&rsquo;s job is to make sure you can do your job. He and his team will handle the formatting, scheduling, and publishing, so you can be the creator. You will never have to touch the dashboard again unless you want to.</p>
+      </article>
+
+    </div>
+
+    <!-- Testimonials 3 & 4 -->
+    <div class="tst-grid" style="margin-top:clamp(30px,4vw,52px)">
+
+      <div class="tst-card rv">
+        <div class="stars" aria-label="5 out of 5">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.9 7.5.6-5.7 4.9 1.7 7.3L12 17.8 5.5 21.7l1.7-7.3L1.5 9.5 9 8.9z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.9 7.5.6-5.7 4.9 1.7 7.3L12 17.8 5.5 21.7l1.7-7.3L1.5 9.5 9 8.9z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.9 7.5.6-5.7 4.9 1.7 7.3L12 17.8 5.5 21.7l1.7-7.3L1.5 9.5 9 8.9z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.9 7.5.6-5.7 4.9 1.7 7.3L12 17.8 5.5 21.7l1.7-7.3L1.5 9.5 9 8.9z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.9 7.5.6-5.7 4.9 1.7 7.3L12 17.8 5.5 21.7l1.7-7.3L1.5 9.5 9 8.9z"/></svg>
+        </div>
+        <!-- REPLACE: Testimonial 3 quote -->
+        <p>&ldquo;REPLACE &mdash; paste testimonial 3 here.&rdquo;</p>
+        <div class="tst-meta" style="margin-top:20px">
+          <span class="av">
+            <!-- REPLACE: Cloudinary URL — testimonial 3 headshot -->
+            <img src="REPLACE_WITH_CLOUDINARY_TESTIMONIAL_3" alt="" />
+          </span>
+          <span><span class="n">Client Name</span><span class="r">Title, Channel</span></span>
+        </div>
+      </div>
+
+      <div class="tst-card rv rv-d1">
+        <div class="stars" aria-label="5 out of 5">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.9 7.5.6-5.7 4.9 1.7 7.3L12 17.8 5.5 21.7l1.7-7.3L1.5 9.5 9 8.9z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.9 7.5.6-5.7 4.9 1.7 7.3L12 17.8 5.5 21.7l1.7-7.3L1.5 9.5 9 8.9z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.9 7.5.6-5.7 4.9 1.7 7.3L12 17.8 5.5 21.7l1.7-7.3L1.5 9.5 9 8.9z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.9 7.5.6-5.7 4.9 1.7 7.3L12 17.8 5.5 21.7l1.7-7.3L1.5 9.5 9 8.9z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.9 7.5.6-5.7 4.9 1.7 7.3L12 17.8 5.5 21.7l1.7-7.3L1.5 9.5 9 8.9z"/></svg>
+        </div>
+        <!-- REPLACE: Testimonial 4 quote -->
+        <p>&ldquo;REPLACE &mdash; paste testimonial 4 here.&rdquo;</p>
+        <div class="tst-meta" style="margin-top:20px">
+          <span class="av">
+            <!-- REPLACE: Cloudinary URL — testimonial 4 headshot -->
+            <img src="REPLACE_WITH_CLOUDINARY_TESTIMONIAL_4" alt="" />
+          </span>
+          <span><span class="n">Client Name</span><span class="r">Title, Channel</span></span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     HOW IT WORKS
+     ============================================================ -->
+<section class="section" id="process" style="padding-top:0">
+  <div class="wrap">
+
+    <div class="sec-head">
+      <span class="eyebrow rv">How It Works</span>
+      <h2 class="h-lg rv rv-d1">Four steps.<br>Zero pressure.</h2>
+    </div>
+
+    <div class="steps">
+      <div class="step rv">
+        <span class="idx">01</span>
+        <div>
+          <h3>Book your free growth audit.</h3>
+          <p>One link, one slot on the calendar. That&rsquo;s the whole commitment.</p>
+        </div>
+      </div>
+      <div class="step rv">
+        <span class="idx">02</span>
+        <div>
+          <h3>Ananda maps exactly where your channel is leaking growth.</h3>
+          <p>Retention, packaging, metadata, publishing cadence &mdash; looked at by the person who would actually do the work.</p>
+        </div>
+      </div>
+      <div class="step rv">
+        <span class="idx">03</span>
+        <div>
+          <h3>No pitch, no obligation.</h3>
+          <p>Worst case, you walk away with a map of exactly what&rsquo;s holding your channel back.</p>
+        </div>
+      </div>
+      <div class="step rv">
+        <span class="idx">04</span>
+        <div>
+          <h3>Best case: his team takes the back end off your plate.</h3>
+          <p>And you get back to creating.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="cta-band">
+      <a href="#book" class="btn big rv" data-cta>
+        Book a Free Growth Audit
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     WHY ANANDA
+     ============================================================ -->
+<section class="section" id="why" style="padding-top:0">
+  <div class="wrap">
+    <div class="split">
+
+      <div class="split-media rv">
+        <!-- REPLACE: Cloudinary URL — Ananda at his monitors / edit suite, landscape -->
+        <img src="REPLACE_WITH_CLOUDINARY_ANANDA_AT_MONITORS" alt="Ananda Paramanick working at his edit suite" />
+      </div>
+
+      <div>
+        <span class="eyebrow rv">Why Ananda</span>
+        <h2 class="h-lg rv rv-d1" style="margin-top:22px">You get the founder.<br>Not a ticket number.</h2>
+
+        <p class="lead rv rv-d2" style="margin-top:26px">
+          Hire a faceless agency and your channel becomes a ticket in someone&rsquo;s backlog. Work with Ananda and work directly with the founder who obsesses over your growth.
+        </p>
+
+        <p class="lead rv rv-d3">
+          Every day you spend buried in edits and metadata is a day your channel isn&rsquo;t compounding. Ananda and his team take the back end off your plate, so you get your time, momentum, and sanity back!
+        </p>
+
+        <ul class="checks rv rv-d4">
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="m4 12 6 6L20 6"/></svg></span> Ananda will personally audit your channel</li>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="m4 12 6 6L20 6"/></svg></span> Show you exactly where the growth is leaking</li>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="m4 12 6 6L20 6"/></svg></span> Map what a founder-led back end would do for your numbers</li>
+          <li><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="m4 12 6 6L20 6"/></svg></span> No pressure. No jargon. Just the plan.</li>
+        </ul>
+
+        <div class="cta-row rv rv-d5" style="margin-top:34px">
+          <a href="#book" class="btn big" data-cta>
+            Book a Free Growth Audit
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     WORK — VIDEOS DESIGNED TO CONVERT
+     ============================================================ -->
+<section class="section" id="work">
+  <div class="wrap">
+
+    <div class="sec-head center">
+      <span class="eyebrow center rv">Videos Designed to Convert</span>
+      <h2 class="h-lg rv rv-d1">Click to see actual<br>client work</h2>
+    </div>
+
+    <!-- ============================================================
+         HOW TO ADD A VIDEO:
+         Paste any YouTube URL (or bare 11-character video ID) into data-yt.
+         The thumbnail is fetched automatically. Clicking opens it in the player.
+         Accepted formats:
+           data-yt="https://www.youtube.com/watch?v=XXXXXXXXXXX"
+           data-yt="https://youtu.be/XXXXXXXXXXX"
+           data-yt="XXXXXXXXXXX"
+         ============================================================ -->
+    <div class="work-grid">
+
+      <!-- REPLACE: video 1 -->
+      <button class="vcard rv" data-yt="REPLACE_YOUTUBE_URL_1" data-title="Client video 1">
+        <div class="vthumb"><span class="vtag">Case Study</span><img alt="" /><span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
+        <div class="vmeta">
+          <span class="vtitle">REPLACE &mdash; video / client name</span>
+          <div class="sub"><span class="res">REPLACE &mdash; the result</span><span class="dot"></span><span>Long-form edit</span></div>
+        </div>
+      </button>
+
+      <!-- REPLACE: video 2 -->
+      <button class="vcard rv rv-d1" data-yt="REPLACE_YOUTUBE_URL_2" data-title="Client video 2">
+        <div class="vthumb"><span class="vtag">Case Study</span><img alt="" /><span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
+        <div class="vmeta">
+          <span class="vtitle">REPLACE &mdash; video / client name</span>
+          <div class="sub"><span class="res">REPLACE &mdash; the result</span><span class="dot"></span><span>Long-form edit</span></div>
+        </div>
+      </button>
+
+      <!-- REPLACE: video 3 -->
+      <button class="vcard rv rv-d2" data-yt="REPLACE_YOUTUBE_URL_3" data-title="Client video 3">
+        <div class="vthumb"><span class="vtag">Case Study</span><img alt="" /><span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
+        <div class="vmeta">
+          <span class="vtitle">REPLACE &mdash; video / client name</span>
+          <div class="sub"><span class="res">REPLACE &mdash; the result</span><span class="dot"></span><span>Long-form edit</span></div>
+        </div>
+      </button>
+
+      <!-- REPLACE: video 4 -->
+      <button class="vcard rv" data-yt="REPLACE_YOUTUBE_URL_4" data-title="Client video 4">
+        <div class="vthumb"><span class="vtag">Case Study</span><img alt="" /><span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
+        <div class="vmeta">
+          <span class="vtitle">REPLACE &mdash; video / client name</span>
+          <div class="sub"><span class="res">REPLACE &mdash; the result</span><span class="dot"></span><span>Long-form edit</span></div>
+        </div>
+      </button>
+
+      <!-- REPLACE: video 5 -->
+      <button class="vcard rv rv-d1" data-yt="REPLACE_YOUTUBE_URL_5" data-title="Client video 5">
+        <div class="vthumb"><span class="vtag">Case Study</span><img alt="" /><span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
+        <div class="vmeta">
+          <span class="vtitle">REPLACE &mdash; video / client name</span>
+          <div class="sub"><span class="res">REPLACE &mdash; the result</span><span class="dot"></span><span>Long-form edit</span></div>
+        </div>
+      </button>
+
+      <!-- REPLACE: video 6 -->
+      <button class="vcard rv rv-d2" data-yt="REPLACE_YOUTUBE_URL_6" data-title="Client video 6">
+        <div class="vthumb"><span class="vtag">Case Study</span><img alt="" /><span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
+        <div class="vmeta">
+          <span class="vtitle">REPLACE &mdash; video / client name</span>
+          <div class="sub"><span class="res">REPLACE &mdash; the result</span><span class="dot"></span><span>Long-form edit</span></div>
+        </div>
+      </button>
+
+    </div>
+
+    <div class="cta-band">
+      <a href="#book" class="btn big rv" data-cta>
+        Book a Free Growth Audit
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     RESULTS YOU CAN VERIFY
+     ============================================================ -->
+<section class="section" id="results" style="padding-top:0">
+  <div class="wrap">
+
+    <div class="sec-head center">
+      <span class="eyebrow center rv">Receipts</span>
+      <h2 class="h-lg rv rv-d1">Results you can verify</h2>
+      <p class="lead rv rv-d2">Video testimonials and raw analytics. Not screenshots of screenshots.</p>
+    </div>
+
+    <!-- Video testimonials -->
+    <div class="work-grid" style="margin-bottom:clamp(18px,2.2vw,28px)">
+      <!-- REPLACE: video testimonial 1 -->
+      <button class="vcard rv" data-yt="REPLACE_YOUTUBE_TESTIMONIAL_URL_1" data-title="Video testimonial 1">
+        <div class="vthumb"><span class="vtag">Testimonial</span><img alt="" /><span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
+        <div class="vmeta"><span class="vtitle">REPLACE &mdash; client name</span><div class="sub"><span class="res">Video testimonial</span></div></div>
+      </button>
+      <!-- REPLACE: video testimonial 2 -->
+      <button class="vcard rv rv-d1" data-yt="REPLACE_YOUTUBE_TESTIMONIAL_URL_2" data-title="Video testimonial 2">
+        <div class="vthumb"><span class="vtag">Testimonial</span><img alt="" /><span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
+        <div class="vmeta"><span class="vtitle">REPLACE &mdash; client name</span><div class="sub"><span class="res">Video testimonial</span></div></div>
+      </button>
+      <!-- REPLACE: video testimonial 3 -->
+      <button class="vcard rv rv-d2" data-yt="REPLACE_YOUTUBE_TESTIMONIAL_URL_3" data-title="Video testimonial 3">
+        <div class="vthumb"><span class="vtag">Testimonial</span><img alt="" /><span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
+        <div class="vmeta"><span class="vtitle">REPLACE &mdash; client name</span><div class="sub"><span class="res">Video testimonial</span></div></div>
+      </button>
+    </div>
+
+    <!-- Analytics screenshots -->
+    <div class="proof-grid">
+      <!-- REPLACE: Cloudinary screenshot URLs + captions -->
+      <figure class="shot rv" data-img="REPLACE_WITH_CLOUDINARY_SCREENSHOT_1" style="margin:0">
+        <img src="REPLACE_WITH_CLOUDINARY_SCREENSHOT_1" alt="Channel analytics screenshot" />
+        <figcaption class="cap">REPLACE &mdash; what this screenshot proves</figcaption>
+      </figure>
+      <figure class="shot rv rv-d1" data-img="REPLACE_WITH_CLOUDINARY_SCREENSHOT_2" style="margin:0">
+        <img src="REPLACE_WITH_CLOUDINARY_SCREENSHOT_2" alt="Channel analytics screenshot" />
+        <figcaption class="cap">REPLACE &mdash; what this screenshot proves</figcaption>
+      </figure>
+      <figure class="shot rv rv-d2" data-img="REPLACE_WITH_CLOUDINARY_SCREENSHOT_3" style="margin:0">
+        <img src="REPLACE_WITH_CLOUDINARY_SCREENSHOT_3" alt="Channel analytics screenshot" />
+        <figcaption class="cap">REPLACE &mdash; what this screenshot proves</figcaption>
+      </figure>
+    </div>
+
+    <div class="stat-row rv">
+      <div class="stat"><div class="n" data-count="15" data-suffix="K">0</div><div class="l">Subscribers added<br>per week, current client</div></div>
+      <div class="stat"><div class="n" data-count="25" data-suffix="K">0</div><div class="l">Subscribers grown<br>single-handed</div></div>
+      <div class="stat"><div class="n">100%</div><div class="l">Founder-led<br>on every account</div></div>
+      <div class="stat"><div class="n">Global</div><div class="l">Clients across<br>the world</div></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     MEET ANANDA
+     ============================================================ -->
+<section class="section" id="about" style="padding-top:0">
+  <div class="wrap">
+    <div class="story rv">
+
+      <div class="story-head">
+        <div class="story-photo">
+          <!-- REPLACE: Cloudinary URL — portrait of Ananda -->
+          <img src="REPLACE_WITH_CLOUDINARY_ANANDA_PORTRAIT" alt="Ananda Paramanick" />
+        </div>
+        <div>
+          <span class="eyebrow">Meet Ananda</span>
+          <h2 class="h-md" style="margin-top:20px">From factory floor to building channels for creators worldwide&hellip;</h2>
+        </div>
+      </div>
+
+      <div class="story-body">
+        <p>
+          Ananda Paramanick comes from a place where the ceiling is a factory job at $150 a month. This is a world he knows firsthand, having cried on that factory floor asking himself, <span class="it">&ldquo;Is this what I studied for?&rdquo;</span>
+        </p>
+
+        <p>
+          During lockdown he started a YouTube channel about the tech he loved, editing every video on a beat-up phone because he couldn&rsquo;t afford a computer. His first AdSense letter from Google was barely more than a line of code on a page.
+        </p>
+
+        <p class="hi">
+          But in India, where he&rsquo;s from, it was proof another life was possible&hellip;
+        </p>
+
+        <div class="story-marks">
+          <div class="mark"><div class="n">$150</div><div class="l">The monthly ceiling he started from</div></div>
+          <div class="mark"><div class="n">$40</div><div class="l">The course he bought to learn the craft</div></div>
+          <div class="mark"><div class="n">25,000</div><div class="l">Subscribers grown single-handed</div></div>
+          <div class="mark"><div class="n">Global</div><div class="l">Clients across the world today</div></div>
+        </div>
+
+        <p>
+          So he built it. A $40 course. Internships that barely paid. A channel grown to 25,000 subscribers single-handed. He got good enough to train an agency&rsquo;s interns, only to discover they earned double his wage. That was the day he stopped waiting to be valued and started freelancing.
+        </p>
+
+        <p>
+          One shared animation reached the right stranger, and the work snowballed into hundreds of thousands of views and clients across the globe. Ananda didn&rsquo;t inherit this craft. He earned it frame by frame &mdash; and now every bit of it goes behind the creators he serves.
+        </p>
+
+        <p>
+          Plenty of agencies sell you a slot in a queue. Ananda built something different &mdash; an operation where the person who obsesses over retention curves is the same person who founded the company.
+        </p>
+
+        <p class="strong">
+          Ananda leads every piece of the pipeline&hellip;and holds it to the standard he&rsquo;d demand of his own channel. When he takes on a client, his name is on the outcome.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FAQ
+     ============================================================ -->
+<section class="section" id="faq" style="padding-top:0">
+  <div class="wrap">
+    <div class="narrow" style="max-width:900px">
+
+      <div class="sec-head center">
+        <span class="eyebrow center rv">FAQs</span>
+        <h2 class="h-lg rv rv-d1">Straight answers</h2>
+      </div>
+
+      <div class="faq">
+
+        <div class="faq-item rv">
+          <button class="faq-q" aria-expanded="false">
+            <span>Will they &ldquo;get&rdquo; my voice?</span>
+            <span class="faq-ico" aria-hidden="true"></span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-in">
+              <p>Absolutely. Ananda will collaborate to ensure that everything in your channel presents your true brand. You always have the final say on titles, thumbnails, and descriptions. It&rsquo;s your channel, after all.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item rv rv-d1">
+          <button class="faq-q" aria-expanded="false">
+            <span>What if I&rsquo;m too small to be worth it?</span>
+            <span class="faq-ico" aria-hidden="true"></span>
+          </button>
+          <div class="faq-a">
+            <div class="faq-a-in">
+              <p>Ananda loves discovering new creators with a big dream. Book an audit with him and you&rsquo;ll see what&rsquo;s possible. If he thinks you&rsquo;re too small now, he&rsquo;ll tell you straight.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- REPLACE (optional): add more Q&As by copying one .faq-item block -->
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     BOOK
+     ============================================================ -->
+<section class="section book" id="book" style="padding-top:0">
+  <div class="wrap">
+    <div class="book-shell rv">
+
+      <div style="text-align:center; max-width:720px; margin-inline:auto">
+        <span class="eyebrow center dot">Limited slots</span>
+        <h2 class="h-lg" style="margin-top:22px">Book a Free Growth Audit</h2>
+        <p class="lead" style="margin-top:22px">
+          Ananda will personally audit your channel, show you exactly where the growth is leaking, and map what a founder-led back end would do for your numbers. <span class="em">No pressure. No jargon. Just the plan.</span>
+        </p>
+      </div>
+
+      <!-- ============================================================
+           CALENDLY
+           To go live: scroll to the JavaScript block at the bottom of this
+           file and replace CALENDLY_URL with your real scheduling link.
+           Nothing else needs to change — the embed loads automatically.
+           ============================================================ -->
+      <div id="calendly-embed" class="pending">
+        <div class="cal-ph">
+          <div class="ico">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M16 3v4M8 3v4M3 11h18"/></svg>
+          </div>
+          <h3>Calendly embed loads here</h3>
+          <p>Open <strong>index.html</strong>, find <code>CALENDLY_URL</code> near the bottom of the script, and paste your scheduling link. The live calendar replaces this panel automatically.</p>
+          <code>const CALENDLY_URL = "https://calendly.com/your-name/growth-audit";</code>
+        </div>
+      </div>
+
+      <p class="cta-note center" style="margin-top:24px; justify-content:center">
+        Prefer email? <a href="mailto:REPLACE@YOUREMAIL.com" style="color:var(--purple-2); text-decoration:underline; text-underline-offset:3px">REPLACE@YOUREMAIL.com</a>
+      </p>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="footer">
+  <div class="wrap">
+
+    <div class="foot-top">
+      <p class="foot-quote">
+        &ldquo;When he takes on a client, <span class="pur">his name is on the outcome.</span>&rdquo;
+      </p>
+
+      <div class="foot-links">
+        <div class="foot-col">
+          <h4>Site</h4>
+          <a href="#services">Services</a>
+          <a href="#process">How It Works</a>
+          <a href="#work">Work</a>
+          <a href="#results">Results</a>
+        </div>
+        <div class="foot-col">
+          <h4>More</h4>
+          <a href="#about">About Ananda</a>
+          <a href="#faq">FAQ</a>
+          <a href="#book" data-cta>Book an Audit</a>
+        </div>
+        <div class="foot-col">
+          <h4>Contact</h4>
+          <!-- REPLACE: real email -->
+          <a href="mailto:REPLACE@YOUREMAIL.com">REPLACE@YOUREMAIL.com</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="foot-bot">
+      <span>&copy; <span id="yr">2026</span> Ananda Paramanick. All rights reserved.</span>
+      <div class="foot-social">
+        <!-- REPLACE: real social URLs -->
+        <a href="https://youtube.com/@REPLACE" target="_blank" rel="noopener" aria-label="YouTube">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8ZM9.6 15.6V8.4l6.2 3.6-6.2 3.6Z"/></svg>
+        </a>
+        <a href="https://linkedin.com/in/REPLACE" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.4 20.4h-3.6v-5.6c0-1.3 0-3-1.9-3s-2.1 1.4-2.1 2.9v5.7H9.2V9h3.4v1.6h.1c.5-.9 1.7-1.9 3.4-1.9 3.6 0 4.3 2.4 4.3 5.5v6.2ZM5.3 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2ZM7.1 20.4H3.5V9h3.6v11.4Z"/></svg>
+        </a>
+        <a href="https://instagram.com/REPLACE" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.3 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.3 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.3-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.3-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4 1.3-.1 1.7-.1 4.9-.1Zm0 5.8a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm0 6.6a2.6 2.6 0 1 1 0-5.2 2.6 2.6 0 0 1 0 5.2Zm5.1-6.8a.94.94 0 1 1-1.88 0 .94.94 0 0 1 1.88 0Z"/></svg>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+<!-- ============================================================
+     LIGHTBOX
+     ============================================================ -->
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Media viewer">
+  <button class="lb-close" id="lbClose" aria-label="Close">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+  </button>
+  <div>
+    <div class="lb-box" id="lbBox"></div>
+    <p class="lb-cap" id="lbCap"></p>
+  </div>
+</div>
+
+<script>
+/* ============================================================
+   ⚙️  YOUR ONE SETTING
+   Paste your real Calendly scheduling link here.
+   Until you do, the booking section shows an instruction panel
+   and every CTA simply scrolls to that section.
+   ============================================================ */
+const CALENDLY_URL = "REPLACE_WITH_YOUR_CALENDLY_LINK"; // e.g. "https://calendly.com/ananda/growth-audit"
+
+(function () {
+  'use strict';
+
+  const $  = (s, c) => (c || document).querySelector(s);
+  const $$ = (s, c) => Array.from((c || document).querySelectorAll(s));
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const calendlyReady = /^https?:\/\/(www\.)?calendly\.com\//i.test(CALENDLY_URL);
+
+  /* ---------- year ---------- */
+  const yr = $('#yr'); if (yr) yr.textContent = new Date().getFullYear();
+
+  /* ---------- CTA wiring -----------------------------------
+     If a real Calendly link exists, CTAs open it in a new tab
+     (and the inline embed is available on the page too).
+     Otherwise they scroll down to the booking section.       */
+  $$('[data-cta]').forEach(el => {
+    if (calendlyReady) {
+      el.setAttribute('href', CALENDLY_URL);
+      el.setAttribute('target', '_blank');
+      el.setAttribute('rel', 'noopener');
+    }
+  });
+
+  /* ---------- Calendly inline embed ---------- */
+  const calBox = $('#calendly-embed');
+  if (calendlyReady && calBox) {
+    calBox.classList.remove('pending');
+    calBox.innerHTML = '';
+    const w = document.createElement('div');
+    w.className = 'calendly-inline-widget';
+    w.setAttribute('data-url', CALENDLY_URL + (CALENDLY_URL.includes('?') ? '&' : '?') +
+      'hide_gdpr_banner=1&background_color=ffffff&text_color=1b1130&primary_color=7c4dff');
+    w.style.minWidth = '320px';
+    w.style.height = '720px';
+    calBox.appendChild(w);
+
+    const s = document.createElement('script');
+    s.src = 'https://assets.calendly.com/assets/external/widget.js';
+    s.async = true;
+    document.body.appendChild(s);
+
+    // CTAs open the popup instead of a new tab once the widget is live
+    s.onload = () => {
+      $$('[data-cta]').forEach(el => {
+        el.addEventListener('click', e => {
+          if (window.Calendly) {
+            e.preventDefault();
+            window.Calendly.initPopupWidget({ url: CALENDLY_URL });
+          }
+        });
+      });
+    };
+  }
+
+  /* ---------- broken-image fallback ----------
+     Video thumbnails are skipped here: they run their own
+     maxres -> hqdefault retry further down.                  */
+  $$('img').forEach(img => {
+    if (img.closest('.vthumb')) return;
+    img.addEventListener('error', () => {
+      img.style.display = 'none';
+      const shot = img.closest('.shot');
+      if (shot) shot.classList.add('ph');
+    }, { once: true });
+  });
+
+  /* ---------- nav: sticky + scrollspy ---------- */
+  const nav = $('#nav');
+  const navA = $$('#navLinks a');
+  const secs = navA.map(a => $(a.getAttribute('href'))).filter(Boolean);
+
+  const onScroll = () => {
+    const y = window.scrollY;
+    nav.classList.toggle('stuck', y > 20);
+
+    const doc = document.documentElement;
+    const max = doc.scrollHeight - doc.clientHeight;
+    $('#progress').style.width = (max > 0 ? (y / max) * 100 : 0) + '%';
+
+    $('#rail').classList.toggle('on', y > window.innerHeight * 0.55);
+
+    let cur = null;
+    const line = y + window.innerHeight * 0.32;
+    secs.forEach(s => { if (s.offsetTop <= line) cur = s; });
+    navA.forEach(a => a.classList.toggle('active', cur && a.getAttribute('href') === '#' + cur.id));
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  /* ---------- mobile menu ---------- */
+  const burger = $('#burger');
+  const closeMenu = () => {
+    document.body.classList.remove('menu-open');
+    document.body.style.overflow = '';
+    burger.setAttribute('aria-expanded', 'false');
+  };
+  burger.addEventListener('click', () => {
+    const open = document.body.classList.toggle('menu-open');
+    document.body.style.overflow = open ? 'hidden' : '';
+    burger.setAttribute('aria-expanded', String(open));
+    if (open) {
+      $$('#mobileMenu .m-link').forEach((a, i) => { a.style.transitionDelay = (0.05 + i * 0.05) + 's'; });
+    }
+  });
+  $$('#mobileMenu a').forEach(a => a.addEventListener('click', closeMenu));
+
+  /* ---------- reveal on scroll ---------- */
+  if (!reduced && 'IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    $$('.rv').forEach(el => io.observe(el));
+  } else {
+    $$('.rv').forEach(el => el.classList.add('in'));
+  }
+
+  /* ---------- marquee: duplicate for seamless loop ---------- */
+  const mq = $('#marquee');
+  if (mq) mq.appendChild(mq.firstElementChild.cloneNode(true));
+
+  /* ---------- counters ---------- */
+  const counters = $$('[data-count]');
+  if (counters.length && 'IntersectionObserver' in window) {
+    const cio = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        cio.unobserve(e.target);
+        const el = e.target;
+        const target = parseFloat(el.dataset.count);
+        const suffix = el.dataset.suffix || '';
+        if (reduced) { el.textContent = target + suffix; return; }
+        const dur = 1400; const t0 = performance.now();
+        const tick = (t) => {
+          const p = Math.min((t - t0) / dur, 1);
+          const eased = 1 - Math.pow(1 - p, 3);
+          el.textContent = Math.round(target * eased) + suffix;
+          if (p < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+      });
+    }, { threshold: 0.5 });
+    counters.forEach(c => cio.observe(c));
+  }
+
+  /* ---------- FAQ accordion ---------- */
+  $$('.faq-item').forEach(item => {
+    const q = $('.faq-q', item);
+    const a = $('.faq-a', item);
+    q.addEventListener('click', () => {
+      const open = item.classList.contains('open');
+      $$('.faq-item.open').forEach(o => {
+        o.classList.remove('open');
+        $('.faq-a', o).style.height = '0px';
+        $('.faq-q', o).setAttribute('aria-expanded', 'false');
+      });
+      if (!open) {
+        item.classList.add('open');
+        a.style.height = $('.faq-a-in', a).offsetHeight + 'px';
+        q.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+  window.addEventListener('resize', () => {
+    const open = $('.faq-item.open');
+    if (open) $('.faq-a', open).style.height = $('.faq-a-in', open).offsetHeight + 'px';
+  });
+
+  /* ---------- YouTube: id parsing + thumbnails ---------- */
+  function ytId(v) {
+    if (!v) return '';
+    v = v.trim();
+    if (/^[\w-]{11}$/.test(v)) return v;
+    const m = v.match(/(?:youtu\.be\/|[?&]v=|\/embed\/|\/shorts\/|\/live\/)([\w-]{11})/);
+    return m ? m[1] : '';
+  }
+
+  $$('.vcard').forEach(card => {
+    const id = ytId(card.dataset.yt);
+    const thumb = $('.vthumb', card);
+    const img = $('img', thumb);
+
+    if (!id) { thumb.classList.add('ph'); return; }
+
+    img.alt = card.dataset.title || 'Video thumbnail';
+
+    img.addEventListener('error', () => {
+      if (img.dataset.fallback) { thumb.classList.add('ph'); return; }
+      img.dataset.fallback = '1';
+      img.src = 'https://i.ytimg.com/vi/' + id + '/hqdefault.jpg';
+    });
+    // YouTube returns a 120x90 grey placeholder when no maxres frame exists
+    img.addEventListener('load', () => {
+      if (img.naturalWidth <= 121 && !img.dataset.fallback) {
+        img.dataset.fallback = '1';
+        img.src = 'https://i.ytimg.com/vi/' + id + '/hqdefault.jpg';
+      }
+    });
+
+    // set src last so the listeners above are guaranteed to be attached
+    img.src = 'https://i.ytimg.com/vi/' + id + '/maxresdefault.jpg';
+
+    card.addEventListener('click', () => openVideo(id, card.dataset.title || ''));
+  });
+
+  /* ---------- lightbox ---------- */
+  const lb = $('#lb'), lbBox = $('#lbBox'), lbCap = $('#lbCap');
+  let lastFocus = null;
+
+  function lockScroll(on) {
+    document.body.style.overflow = on ? 'hidden' : '';
+  }
+
+  function openLB(html, caption, imgMode) {
+    lastFocus = document.activeElement;
+    lbBox.innerHTML = html;
+    lbBox.classList.toggle('img-mode', !!imgMode);
+    lbCap.textContent = caption || '';
+    lb.classList.add('on');
+    lockScroll(true);
+    $('#lbClose').focus();
+  }
+
+  function closeLB() {
+    lb.classList.remove('on');
+    lockScroll(false);
+    setTimeout(() => { lbBox.innerHTML = ''; }, 400); // kill the iframe -> stops audio
+    if (lastFocus) lastFocus.focus();
+  }
+
+  function openVideo(id, title) {
+    openLB(
+      '<div class="lb-frame"><iframe src="https://www.youtube-nocookie.com/embed/' + id +
+      '?autoplay=1&rel=0&modestbranding=1" title="' + (title || 'Video').replace(/"/g, '') +
+      '" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>',
+      title, false
+    );
+  }
+
+  $$('.shot').forEach(fig => {
+    fig.setAttribute('role', 'button');
+    fig.setAttribute('tabindex', '0');
+    const open = () => {
+      const src = fig.dataset.img;
+      const img = $('img', fig);
+      if (!src || (img && img.style.display === 'none')) return; // nothing loaded yet
+      const cap = $('.cap', fig);
+      openLB('<img src="' + src + '" alt="">', cap ? cap.textContent : '', true);
+    };
+    fig.addEventListener('click', open);
+    fig.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); }
+    });
+  });
+
+  $('#lbClose').addEventListener('click', closeLB);
+  lb.addEventListener('click', e => { if (e.target === lb || e.target.id === 'lbBox') closeLB(); });
+  document.addEventListener('keydown', e => {
+    if (e.key !== 'Escape') return;
+    if (lb.classList.contains('on')) closeLB();
+    else if (document.body.classList.contains('menu-open')) closeMenu();
+  });
+
+  /* ---------- mouse spotlight ---------- */
+  if (window.matchMedia('(pointer:fine)').matches && !reduced) {
+    const spot = $('#spot');
+    spot.classList.add('on');
+    let rx = 0, ry = 0, cx = 0, cy = 0, running = false;
+    window.addEventListener('mousemove', e => {
+      rx = e.clientX; ry = e.clientY;
+      if (!running) { running = true; requestAnimationFrame(loop); }
+    }, { passive: true });
+    function loop() {
+      cx += (rx - cx) * 0.09;
+      cy += (ry - cy) * 0.09;
+      spot.style.setProperty('--mx', cx + 'px');
+      spot.style.setProperty('--my', cy + 'px');
+      if (Math.abs(rx - cx) > 0.5 || Math.abs(ry - cy) > 0.5) requestAnimationFrame(loop);
+      else running = false;
+    }
+  }
+
+  /* ---------- smooth anchor scroll with nav offset ---------- */
+  $$('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const href = a.getAttribute('href');
+      if (href === '#' || a.hasAttribute('target')) return;
+      const t = document.querySelector(href);
+      if (!t) return;
+      e.preventDefault();
+      const top = t.getBoundingClientRect().top + window.scrollY - 84;
+      window.scrollTo({ top, behavior: reduced ? 'auto' : 'smooth' });
+    });
+  });
+
+})();
+</script>
+
+</body>
+</html>
