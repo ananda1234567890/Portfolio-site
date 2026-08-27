@@ -2054,6 +2054,8 @@ const CALENDLY_URL = "REPLACE_WITH_YOUR_CALENDLY_LINK"; // e.g. "https://calendl
 
     if (!id) { thumb.classList.add('ph'); return; }
 
+    img.loading = 'lazy';
+    img.decoding = 'async';
     img.alt = card.dataset.title || 'Video thumbnail';
 
     img.addEventListener('error', () => {
