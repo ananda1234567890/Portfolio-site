@@ -321,7 +321,7 @@ body.menu-open .mobile-menu a.m-link{ opacity:1; transform:none; }
    ============================================================ */
 .hero{
   min-height:100svh; display:flex; align-items:center;
-  padding-top:clamp(130px,17vh,180px); padding-bottom:clamp(70px,10vh,110px);
+  padding-top:clamp(130px,17vh,180px); padding-bottom:clamp(120px,17vh,168px);
   position:relative;
 }
 .hero-grid{
@@ -339,7 +339,7 @@ body.menu-open .mobile-menu a.m-link{ opacity:1; transform:none; }
   background:
     radial-gradient(120% 90% at 50% 0%, rgba(255,255,255,.14) 0%, rgba(255,255,255,0) 60%),
     linear-gradient(165deg, var(--purple) 0%, #5a2bd8 48%, #34158f 100%);
-  box-shadow:0 40px 100px -34px rgba(90,43,216,.9), inset 0 1px 0 rgba(255,255,255,.2), 0 0 110px -20px rgba(124,77,255,.45);
+  box-shadow:0 40px 100px -34px rgba(90,43,216,.9), inset 0 1px 0 rgba(255,255,255,.2);
 }
 .portrait-frame img{
   width:100%; height:100%; object-fit:cover; object-position:top center;
@@ -381,6 +381,31 @@ body.menu-open .mobile-menu a.m-link{ opacity:1; transform:none; }
 .hero-sub{ margin-top:26px; max-width:560px; }
 .hero-cta{ margin-top:34px; }
 
+.scroll-hint{
+  position:absolute; left:50%; bottom:26px; transform:translateX(-50%);
+  font-size:10.5px; letter-spacing:.22em; text-transform:uppercase; color:var(--muted-2);
+  display:flex; flex-direction:column; align-items:center; gap:9px;
+}
+.scroll-hint .bar{ width:1px; height:38px; background:linear-gradient(to bottom,var(--purple),transparent); }
+
+/* social rail */
+.rail{
+  position:fixed; right:20px; top:50%; transform:translateY(-50%); z-index:60;
+  display:flex; flex-direction:column; align-items:center; gap:14px;
+  opacity:0; transition:opacity .6s ease;
+}
+.rail.on{ opacity:1; }
+.rail .txt{ writing-mode:vertical-rl; font-size:10.5px; letter-spacing:.2em;
+  text-transform:uppercase; color:var(--muted-2); }
+.rail .ln{ width:1px; height:44px; background:var(--line-2); }
+.rail a{
+  width:33px; height:33px; border-radius:10px; display:grid; place-items:center;
+  background:rgba(124,77,255,.14); border:1px solid rgba(165,133,255,.2);
+  color:var(--purple-3);
+  transition:transform .35s var(--ease), background .35s ease, color .35s ease;
+}
+.rail a:hover{ transform:translateY(-3px); background:var(--purple); color:#fff; }
+.rail a svg{ width:15px; height:15px; }
 
 /* ============================================================
    6. MARQUEE
@@ -403,31 +428,24 @@ body.menu-open .mobile-menu a.m-link{ opacity:1; transform:none; }
 }
 .marquee-group i{ width:5px; height:5px; border-radius:50%; background:var(--purple); flex:none; }
 
-.marquee.clients{ background:rgba(124,77,255,.02); padding-block:16px; }
+.marquee.clients{ background:rgba(124,77,255,.02); }
 .cmq-label{
   text-align:center; padding-top:22px;
   font-size:10.5px; font-weight:700; letter-spacing:.2em; text-transform:uppercase;
   color:var(--muted-2);
 }
 .cmq-item{
-  display:flex; align-items:center; gap:12px; flex:none;
-  margin-inline:9px; padding:10px 18px 10px 10px; white-space:nowrap;
-  border-radius:100px; border:1px solid rgba(165,133,255,.16);
-  background:linear-gradient(120deg, rgba(124,77,255,.1), rgba(124,77,255,.03));
-  box-shadow:0 0 22px -10px rgba(124,77,255,.55);
+  display:flex; align-items:center; gap:11px; flex:none;
+  padding-inline:22px; white-space:nowrap;
 }
 .cmq-item img{
-  width:36px; height:36px; border-radius:50%; object-fit:cover; flex:none;
+  width:34px; height:34px; border-radius:50%; object-fit:cover; flex:none;
   box-shadow:0 0 0 1px rgba(255,255,255,.16);
   background:linear-gradient(150deg,var(--purple),#34158f);
 }
-.cmq-item .who{ display:flex; flex-direction:column; gap:2px; line-height:1.15; }
-.cmq-item .who .cn{
+.cmq-item span{
   font-family:'Bricolage Grotesque',sans-serif; font-weight:700;
-  font-size:.92rem; letter-spacing:-.01em; color:var(--text);
-}
-.cmq-item .who .cs{
-  font-size:11px; font-weight:700; letter-spacing:.04em; color:var(--purple-3);
+  font-size:.94rem; letter-spacing:-.01em; color:var(--muted);
 }
 
 /* ============================================================
@@ -508,9 +526,8 @@ body.menu-open .mobile-menu a.m-link{ opacity:1; transform:none; }
 }
 .tst-quote .hl{ color:var(--purple-2); }
 .tst-meta{ margin-top:26px; display:flex; align-items:center; gap:13px; }
-.tst-who{ display:flex; flex-direction:column; gap:2px; }
 .tst-meta .n{ font-weight:700; font-size:15.5px; color:#fff; letter-spacing:-.01em; }
-.tst-meta .r{ font-size:13px; color:var(--muted); }
+.tst-meta .r{ font-size:13px; color:var(--muted); margin-top:1px; }
 .stars{ display:flex; gap:3px; margin-bottom:16px; color:var(--gold); }
 .stars svg{ width:16px; height:16px; }
 
@@ -587,7 +604,7 @@ body.menu-open .mobile-menu a.m-link{ opacity:1; transform:none; }
   transition:background .5s ease;
 }
 .step:first-child{ border-top:1px solid var(--line); }
-.step:hover{ background:radial-gradient(560px 240px at -8% 50%, rgba(124,77,255,.10), transparent 72%); }
+.step:hover{ background:linear-gradient(90deg, rgba(124,77,255,.07), transparent 60%); }
 .step .idx{
   font-family:'Bricolage Grotesque',sans-serif; font-weight:800;
   font-size:clamp(2.1rem,4.4vw,3.3rem); line-height:.9; letter-spacing:-.05em;
@@ -616,7 +633,7 @@ body.menu-open .mobile-menu a.m-link{ opacity:1; transform:none; }
   position:relative; border-radius:var(--r-lg); overflow:hidden;
   aspect-ratio:4/3.2;
   background:linear-gradient(160deg, var(--purple) 0%, #34158f 100%);
-  box-shadow:0 44px 100px -44px rgba(90,43,216,.85), 0 0 100px -22px rgba(124,77,255,.4);
+  box-shadow:0 44px 100px -44px rgba(90,43,216,.85);
   border:1px solid rgba(165,133,255,.2);
 }
 .split-media img{ width:100%; height:100%; object-fit:cover; }
@@ -648,7 +665,6 @@ body.menu-open .mobile-menu a.m-link{ opacity:1; transform:none; }
   transition:transform .55s var(--ease);
 }
 .vcard:hover{ transform:translateY(-8px); }
-.vcard.playing:hover{ transform:none; }
 .vthumb{
   position:relative; aspect-ratio:16/9; border-radius:var(--r-md); overflow:hidden;
   background:linear-gradient(150deg,#2a1a54,#150c2e);
@@ -657,7 +673,6 @@ body.menu-open .mobile-menu a.m-link{ opacity:1; transform:none; }
   transition:border-color .5s var(--ease), box-shadow .5s var(--ease);
 }
 .vcard:hover .vthumb{ border-color:rgba(165,133,255,.5); box-shadow:0 34px 74px -30px rgba(124,77,255,.6); }
-.vthumb iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; }
 .vthumb img{
   width:100%; height:100%; object-fit:cover;
   transition:transform .8s var(--ease), filter .6s ease;
@@ -688,13 +703,11 @@ body.menu-open .mobile-menu a.m-link{ opacity:1; transform:none; }
   border:1px solid rgba(255,255,255,.16); color:var(--purple-3);
 }
 .vmeta{ padding:18px 4px 0; }
-.vmeta .vtitle-row{ display:flex; align-items:baseline; gap:8px; flex-wrap:wrap; }
 .vmeta .vtitle{
   display:block;
   font-family:'Bricolage Grotesque','Inter',sans-serif; font-weight:800;
   font-size:1.06rem; letter-spacing:-.022em; line-height:1.32; color:var(--text);
 }
-.vmeta .vsubs{ font-size:12px; font-weight:600; color:var(--purple-2); white-space:nowrap; }
 .vmeta .sub{ margin-top:8px; font-size:13.5px; color:var(--muted); display:flex; align-items:center; gap:9px; flex-wrap:wrap; }
 .vmeta .sub .dot{ width:3px; height:3px; border-radius:50%; background:var(--muted-2); flex:none; }
 .vmeta .res{ color:var(--purple-2); font-weight:600; }
@@ -718,12 +731,16 @@ body.menu-open .mobile-menu a.m-link{ opacity:1; transform:none; }
 .shot{
   position:relative; border-radius:var(--r-md); overflow:hidden;
   border:1px solid var(--line); background:linear-gradient(150deg,#221547,#130b28);
-  cursor:zoom-in; display:flex; align-items:center;
+  aspect-ratio:16/11; cursor:zoom-in;
   transition:transform .55s var(--ease), border-color .5s var(--ease);
 }
 .shot:hover{ transform:translateY(-6px); border-color:rgba(165,133,255,.45); }
-.shot img{ width:100%; height:auto; display:block; }
-.shot.ph{ min-height:160px; }
+.shot img{ width:100%; height:100%; object-fit:cover; }
+.shot .cap{
+  position:absolute; left:0; right:0; bottom:0; z-index:3; padding:16px 18px;
+  background:linear-gradient(to top, rgba(8,4,24,.9), transparent);
+  font-size:13px; color:#E4DDF3; font-weight:500;
+}
 .shot.ph::before{
   content:'Cloudinary screenshot'; position:absolute; inset:0; z-index:2;
   display:grid; place-items:center;
@@ -771,7 +788,7 @@ body.menu-open .mobile-menu a.m-link{ opacity:1; transform:none; }
 .story-photo{
   aspect-ratio:1/1.15; border-radius:var(--r-md); overflow:hidden;
   background:linear-gradient(155deg,var(--purple),#2b1180);
-  box-shadow:0 30px 70px -32px rgba(0,0,0,.95), 0 0 90px -18px rgba(124,77,255,.45);
+  box-shadow:0 30px 70px -32px rgba(0,0,0,.95);
   border:1px solid rgba(165,133,255,.2);
 }
 .story-photo img{ width:100%; height:100%; object-fit:cover; }
@@ -964,6 +981,7 @@ body.menu-open .mobile-menu a.m-link{ opacity:1; transform:none; }
   .nav-links{ display:none; }
   .burger{ display:block; }
   .nav-cta .btn{ display:none; }
+  .rail{ display:none; }
 }
 @media (max-width:960px){
   .hero{ min-height:auto; }
@@ -975,6 +993,7 @@ body.menu-open .mobile-menu a.m-link{ opacity:1; transform:none; }
   .split.rev .split-media{ order:0; }
   .story-head{ grid-template-columns:1fr; }
   .story-photo{ max-width:300px; aspect-ratio:1/1; }
+  .scroll-hint{ display:none; }
 }
 @media (max-width:640px){
   body{ line-height:1.68; }
@@ -1050,6 +1069,18 @@ body.menu-open .mobile-menu a.m-link{ opacity:1; transform:none; }
   <a href="#book" class="btn big" data-cta>Book a Free Growth Audit</a>
 </nav>
 
+<!-- social rail (desktop) -->
+<aside class="rail" id="rail" aria-label="Social links">
+  <span class="txt">Follow me on</span>
+  <span class="ln"></span>
+  <a href="https://x.com/OnlyAnanda_" target="_blank" rel="noopener" aria-label="X (Twitter)">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.6 8.7L23 22h-6.7l-5.2-6.8L5 22H1.9l8.1-9.3L1 2h6.9l4.7 6.2L18.9 2Zm-1.2 18h1.9L7.4 4H5.4l12.3 16Z"/></svg>
+  </a>
+  <a href="https://in.linkedin.com/in/anandaparamanick" target="_blank" rel="noopener" aria-label="LinkedIn">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.4 20.4h-3.6v-5.6c0-1.3 0-3-1.9-3s-2.1 1.4-2.1 2.9v5.7H9.2V9h3.4v1.6h.1c.5-.9 1.7-1.9 3.4-1.9 3.6 0 4.3 2.4 4.3 5.5v6.2ZM5.3 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2ZM7.1 20.4H3.5V9h3.6v11.4Z"/></svg>
+  </a>
+</aside>
+
 <main id="top">
 
 <!-- ============================================================
@@ -1106,6 +1137,11 @@ body.menu-open .mobile-menu a.m-link{ opacity:1; transform:none; }
 
     </div>
   </div>
+
+  <div class="scroll-hint" aria-hidden="true">
+    <span>Scroll</span>
+    <span class="bar"></span>
+  </div>
 </section>
 
 <!-- ============================================================
@@ -1131,13 +1167,13 @@ body.menu-open .mobile-menu a.m-link{ opacity:1; transform:none; }
 <div class="marquee clients" aria-label="Clients">
   <div class="marquee-track" data-marquee>
     <div class="marquee-group">
-      <span class="cmq-item"><img src="https://res.cloudinary.com/dqcoveq5p/image/upload/v1787840000/channels4_profile_j48kb0.jpg" alt="" loading="lazy"><span class="who"><span class="cn">Randy Gage</span><span class="cs">235K SUBS</span></span></span>
-      <span class="cmq-item"><img src="https://res.cloudinary.com/dqcoveq5p/image/upload/v1776452541/channels4_profile_qymomn.jpg" alt="" loading="lazy"><span class="who"><span class="cn">ArborXR</span><span class="cs">1K SUBS</span></span></span>
-      <span class="cmq-item"><img src="https://res.cloudinary.com/dqcoveq5p/image/upload/v1776452541/Christian_youluz.jpg" alt="" loading="lazy"><span class="who"><span class="cn">Christian Wattig</span><span class="cs">17K SUBS</span></span></span>
-      <span class="cmq-item"><img src="https://res.cloudinary.com/dqcoveq5p/image/upload/v1776452802/channels4_profile_2_pvrram.jpg" alt="" loading="lazy"><span class="who"><span class="cn">Your CFO Guy</span><span class="cs">77.7K SUBS</span></span></span>
-      <span class="cmq-item"><img src="https://res.cloudinary.com/dqcoveq5p/image/upload/v1776452541/channels4_profile_1_hddjmz.jpg" alt="" loading="lazy"><span class="who"><span class="cn">Samu Kov&aacute;cs</span><span class="cs">2.5K SUBS</span></span></span>
-      <span class="cmq-item"><img src="https://res.cloudinary.com/dqcoveq5p/image/upload/v1776452541/rachel_h1apds.jpg" alt="" loading="lazy"><span class="who"><span class="cn">Rachel Rof&eacute;</span><span class="cs">16K SUBS</span></span></span>
-      <span class="cmq-item"><img src="https://res.cloudinary.com/dqcoveq5p/image/upload/v1776452541/Sam_Dunning_ra7g0f.jpg" alt="" loading="lazy"><span class="who"><span class="cn">Sam Dunning</span><span class="cs">3.43K SUBS</span></span></span>
+      <span class="cmq-item"><img src="https://res.cloudinary.com/dqcoveq5p/image/upload/v1787840000/channels4_profile_j48kb0.jpg" alt="" loading="lazy"><span>Randy Gage</span></span>
+      <span class="cmq-item"><img src="https://res.cloudinary.com/dqcoveq5p/image/upload/v1776452541/channels4_profile_qymomn.jpg" alt="" loading="lazy"><span>ArborXR</span></span>
+      <span class="cmq-item"><img src="https://res.cloudinary.com/dqcoveq5p/image/upload/v1776452541/Christian_youluz.jpg" alt="" loading="lazy"><span>Christian Wattig</span></span>
+      <span class="cmq-item"><img src="https://res.cloudinary.com/dqcoveq5p/image/upload/v1776452802/channels4_profile_2_pvrram.jpg" alt="" loading="lazy"><span>Your CFO Guy</span></span>
+      <span class="cmq-item"><img src="https://res.cloudinary.com/dqcoveq5p/image/upload/v1776452541/channels4_profile_1_hddjmz.jpg" alt="" loading="lazy"><span>Samu Kov&aacute;cs</span></span>
+      <span class="cmq-item"><img src="https://res.cloudinary.com/dqcoveq5p/image/upload/v1776452541/rachel_h1apds.jpg" alt="" loading="lazy"><span>Rachel Rof&eacute;</span></span>
+      <span class="cmq-item"><img src="https://res.cloudinary.com/dqcoveq5p/image/upload/v1776452541/Sam_Dunning_ra7g0f.jpg" alt="" loading="lazy"><span>Sam Dunning</span></span>
     </div>
   </div>
 </div>
@@ -1251,7 +1287,7 @@ body.menu-open .mobile-menu a.m-link{ opacity:1; transform:none; }
         <span class="av">
           <img src="https://res.cloudinary.com/dqcoveq5p/image/upload/v1787840000/channels4_profile_j48kb0.jpg" alt="Randy Gage" loading="lazy" />
         </span>
-        <span class="tst-who">
+        <span>
           <span class="n">Randy Gage</span>
           <span class="r">Founder, Breakthrough U Entrepreneur Accelerator</span>
         </span>
@@ -1273,7 +1309,7 @@ body.menu-open .mobile-menu a.m-link{ opacity:1; transform:none; }
           <span class="av">
             <img src="https://res.cloudinary.com/dqcoveq5p/image/upload/v1776452541/channels4_profile_1_hddjmz.jpg" alt="Samu Kovács" loading="lazy" />
           </span>
-          <span class="tst-who">
+          <span>
             <span class="n">Samu Kov&aacute;cs</span>
             <span class="r">Founder, Ks Media</span>
           </span>
@@ -1355,9 +1391,9 @@ body.menu-open .mobile-menu a.m-link{ opacity:1; transform:none; }
         <p>&ldquo;I&rsquo;ve been working with Ananda for quite a while and the only thing I can say is the guy is a gem. The guy knows his job perfectly, he executes it perfectly, and with the communication part, he has some great communication skills. He responds as quickly as possible, and that&rsquo;s for sure. The guy is like he can read your mind.&rdquo;</p>
         <div class="tst-meta" style="margin-top:20px">
           <span class="av">
-            <img src="https://res.cloudinary.com/dqcoveq5p/image/upload/v1787842699/channels4_profile_br9qko.jpg" alt="Maaz" loading="lazy" />
+            <img src="https://res.cloudinary.com/dqcoveq5p/image/upload/v1787842699/channels4_profile_br9qko.jpg" alt="Mazz" loading="lazy" />
           </span>
-          <span class="tst-who"><span class="n">Maaz</span><span class="r">Founder, Glore</span></span>
+          <span><span class="n">Mazz</span><span class="r">Founder, Glore</span></span>
         </div>
       </div>
 
@@ -1479,8 +1515,7 @@ body.menu-open .mobile-menu a.m-link{ opacity:1; transform:none; }
     <!-- ============================================================
          HOW TO ADD A VIDEO:
          Paste any YouTube URL (or bare 11-character video ID) into data-yt.
-         The thumbnail is fetched automatically. Clicking plays it inline,
-         right in the grid — no pop-up.
+         The thumbnail is fetched automatically. Clicking opens it in the player.
          Accepted formats:
            data-yt="https://www.youtube.com/watch?v=XXXXXXXXXXX"
            data-yt="https://youtu.be/XXXXXXXXXXX"
@@ -1488,77 +1523,77 @@ body.menu-open .mobile-menu a.m-link{ opacity:1; transform:none; }
          ============================================================ -->
     <div class="work-grid">
 
-      <div class="vcard rv" role="button" tabindex="0" data-yt="hoUvDk1rkug" data-title="7 Questions That Decide if You Get Rich — Randy Gage">
+      <button class="vcard rv" data-yt="hoUvDk1rkug" data-title="7 Questions That Decide if You Get Rich — Randy Gage">
         <div class="vthumb"><img alt="" /><span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
         <div class="vmeta">
-          <span class="vtitle-row"><span class="vtitle">Randy Gage</span><span class="vsubs">235K subs</span></span>
+          <span class="vtitle">Randy Gage</span>
           <div class="sub"><span>Long-form edit</span></div>
         </div>
-      </div>
+      </button>
 
-      <div class="vcard rv rv-d1" role="button" tabindex="0" data-yt="QILxE2CwgTs" data-title="Why I'd Burn an MBA Before I'd Frame One — Randy Gage">
+      <button class="vcard rv rv-d1" data-yt="QILxE2CwgTs" data-title="Why I'd Burn an MBA Before I'd Frame One — Randy Gage">
         <div class="vthumb"><img alt="" /><span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
         <div class="vmeta">
-          <span class="vtitle-row"><span class="vtitle">Randy Gage</span><span class="vsubs">235K subs</span></span>
+          <span class="vtitle">Randy Gage</span>
           <div class="sub"><span>Long-form edit</span></div>
         </div>
-      </div>
+      </button>
 
-      <div class="vcard rv rv-d2" role="button" tabindex="0" data-yt="GZE8_weVPwk" data-title="VR Training For Manufacturing (Full Guide) — ArborXR">
+      <button class="vcard rv rv-d2" data-yt="GZE8_weVPwk" data-title="VR Training For Manufacturing (Full Guide) — ArborXR">
         <div class="vthumb"><img alt="" /><span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
         <div class="vmeta">
-          <span class="vtitle-row"><span class="vtitle">ArborXR</span><span class="vsubs">1K subs</span></span>
+          <span class="vtitle">ArborXR</span>
           <div class="sub"><span>Long-form edit</span></div>
         </div>
-      </div>
+      </button>
 
-      <div class="vcard rv" role="button" tabindex="0" data-yt="5KgAh2edlCs" data-title="How to Use VR For Training in Your Business (2025 GUIDE) — ArborXR">
+      <button class="vcard rv" data-yt="5KgAh2edlCs" data-title="How to Use VR For Training in Your Business (2025 GUIDE) — ArborXR">
         <div class="vthumb"><img alt="" /><span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
         <div class="vmeta">
-          <span class="vtitle-row"><span class="vtitle">ArborXR</span><span class="vsubs">1K subs</span></span>
+          <span class="vtitle">ArborXR</span>
           <div class="sub"><span>Long-form edit</span></div>
         </div>
-      </div>
+      </button>
 
-      <div class="vcard rv rv-d1" role="button" tabindex="0" data-yt="4F8pak9Owo8" data-title="How to Start Print on Demand With $0 in 2025 — Rachel Rofé">
+      <button class="vcard rv rv-d1" data-yt="4F8pak9Owo8" data-title="How to Start Print on Demand With $0 in 2025 — Rachel Rofé">
         <div class="vthumb"><img alt="" /><span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
         <div class="vmeta">
-          <span class="vtitle-row"><span class="vtitle">Rachel Rof&eacute;</span><span class="vsubs">16K subs</span></span>
+          <span class="vtitle">Rachel Rof&eacute;</span>
           <div class="sub"><span>Long-form edit</span></div>
         </div>
-      </div>
+      </button>
 
-      <div class="vcard rv rv-d2" role="button" tabindex="0" data-yt="ioKI4tNyPC0" data-title="BEST SaaS Marketing Strategy to Grow to $500k+ MRR — Sam Dunning">
+      <button class="vcard rv rv-d2" data-yt="ioKI4tNyPC0" data-title="BEST SaaS Marketing Strategy to Grow to $500k+ MRR — Sam Dunning">
         <div class="vthumb"><img alt="" /><span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
         <div class="vmeta">
-          <span class="vtitle-row"><span class="vtitle">Sam Dunning &mdash; Breaking B2B</span><span class="vsubs">3.43K subs</span></span>
+          <span class="vtitle">Sam Dunning &mdash; Breaking B2B</span>
           <div class="sub"><span>Long-form edit</span></div>
         </div>
-      </div>
+      </button>
 
-      <div class="vcard rv" role="button" tabindex="0" data-yt="IiHvE3ftmMo" data-title="Complete On-Page SEO Checklist For B2B (2025) — Sam Dunning">
+      <button class="vcard rv" data-yt="IiHvE3ftmMo" data-title="Complete On-Page SEO Checklist For B2B (2025) — Sam Dunning">
         <div class="vthumb"><img alt="" /><span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
         <div class="vmeta">
-          <span class="vtitle-row"><span class="vtitle">Sam Dunning &mdash; Breaking B2B</span><span class="vsubs">3.43K subs</span></span>
+          <span class="vtitle">Sam Dunning &mdash; Breaking B2B</span>
           <div class="sub"><span>Long-form edit</span></div>
         </div>
-      </div>
+      </button>
 
-      <div class="vcard rv rv-d1" role="button" tabindex="0" data-yt="vYgzFwSXnLA" data-title="Why Your Business Needs VR in 2025 — ArborXR">
+      <button class="vcard rv rv-d1" data-yt="vYgzFwSXnLA" data-title="Why Your Business Needs VR in 2025 — ArborXR">
         <div class="vthumb"><img alt="" /><span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
         <div class="vmeta">
-          <span class="vtitle-row"><span class="vtitle">ArborXR</span><span class="vsubs">1K subs</span></span>
+          <span class="vtitle">ArborXR</span>
           <div class="sub"><span>Long-form edit</span></div>
         </div>
-      </div>
+      </button>
 
-      <div class="vcard rv rv-d2" role="button" tabindex="0" data-yt="gIDLVACj3-A" data-title="PowerPoint Presentations Are DEAD in Finance, Do This Instead — Christian Wattig">
+      <button class="vcard rv rv-d2" data-yt="gIDLVACj3-A" data-title="PowerPoint Presentations Are DEAD in Finance, Do This Instead — Christian Wattig">
         <div class="vthumb"><img alt="" /><span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
         <div class="vmeta">
-          <span class="vtitle-row"><span class="vtitle">Christian Wattig</span><span class="vsubs">17K subs</span></span>
+          <span class="vtitle">Christian Wattig</span>
           <div class="sub"><span>Long-form edit</span></div>
         </div>
-      </div>
+      </button>
 
     </div>
 
@@ -1586,27 +1621,29 @@ body.menu-open .mobile-menu a.m-link{ opacity:1; transform:none; }
 
     <!-- Video testimonials -->
     <div class="work-grid" style="margin-bottom:clamp(18px,2.2vw,28px)">
-      <div class="vcard rv" role="button" tabindex="0" data-yt="uSOlFhOk75g" data-title="Samu Kovács — video testimonial">
+      <button class="vcard rv" data-yt="uSOlFhOk75g" data-title="Samu Kovács — video testimonial">
         <div class="vthumb"><span class="vtag">Testimonial</span><img alt="" /><span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
         <div class="vmeta"><span class="vtitle">Samu Kov&aacute;cs</span><div class="sub"><span class="res">Video testimonial</span></div></div>
-      </div>
-      <div class="vcard rv rv-d1" role="button" tabindex="0" data-yt="cD5JpbKqYZk" data-title="Aditya — video testimonial">
+      </button>
+      <button class="vcard rv rv-d1" data-yt="cD5JpbKqYZk" data-title="Aditya — video testimonial">
         <div class="vthumb"><span class="vtag">Testimonial</span><img alt="" /><span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
         <div class="vmeta"><span class="vtitle">Aditya</span><div class="sub"><span class="res">Video testimonial</span></div></div>
-      </div>
-      <div class="vcard rv rv-d2" role="button" tabindex="0" data-yt="yR-DEZzF39M" data-title="Maaz — video testimonial">
+      </button>
+      <button class="vcard rv rv-d2" data-yt="yR-DEZzF39M" data-title="Maaz — video testimonial">
         <div class="vthumb"><span class="vtag">Testimonial</span><img alt="" /><span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
         <div class="vmeta"><span class="vtitle">Maaz</span><div class="sub"><span class="res">Video testimonial</span></div></div>
-      </div>
+      </button>
     </div>
 
     <!-- Analytics screenshots -->
     <div class="proof-grid">
       <figure class="shot rv" data-img="https://res.cloudinary.com/dqcoveq5p/image/upload/v1776437847/IMG_3941_yofcwg.jpg" style="margin:0">
         <img src="https://res.cloudinary.com/dqcoveq5p/image/upload/v1776437847/IMG_3941_yofcwg.jpg" alt="Unsolicited chat reaction to a finished edit" loading="lazy" />
+        <figcaption class="cap">An unsolicited reaction, sent mid-project</figcaption>
       </figure>
       <figure class="shot rv rv-d1" data-img="https://res.cloudinary.com/dqcoveq5p/image/upload/v1776437093/Screenshot_2025-06-25_103834_dbuidd.png" style="margin:0">
         <img src="https://res.cloudinary.com/dqcoveq5p/image/upload/v1776437093/Screenshot_2025-06-25_103834_dbuidd.png" alt="Samu Kovács giving direct feedback on a video" loading="lazy" />
+        <figcaption class="cap">Direct client feedback, straight from Discord</figcaption>
       </figure>
     </div>
 
@@ -1950,6 +1987,8 @@ const CALENDLY_URL = "REPLACE_WITH_YOUR_CALENDLY_LINK"; // e.g. "https://calendl
     const max = doc.scrollHeight - doc.clientHeight;
     $('#progress').style.width = (max > 0 ? (y / max) * 100 : 0) + '%';
 
+    $('#rail').classList.toggle('on', y > window.innerHeight * 0.55);
+
     let cur = null;
     const line = y + window.innerHeight * 0.32;
     secs.forEach(s => { if (s.offsetTop <= line) cur = s; });
@@ -2072,25 +2111,10 @@ const CALENDLY_URL = "REPLACE_WITH_YOUR_CALENDLY_LINK"; // e.g. "https://calendl
     // set src last so the listeners above are guaranteed to be attached
     img.src = 'https://i.ytimg.com/vi/' + id + '/maxresdefault.jpg';
 
-    // click/tap plays the video inline, right inside the thumbnail —
-    // no pop-up. The visitor can still use the native YouTube fullscreen
-    // control (bottom-right of the player) to expand it if they want.
-    const playInline = () => {
-      if (card.classList.contains('playing')) return;
-      card.classList.add('playing');
-      const title = (card.dataset.title || 'Video').replace(/"/g, '');
-      thumb.innerHTML =
-        '<iframe src="https://www.youtube-nocookie.com/embed/' + id +
-        '?autoplay=1&rel=0&modestbranding=1" title="' + title +
-        '" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
-    };
-    card.addEventListener('click', playInline);
-    card.addEventListener('keydown', e => {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); playInline(); }
-    });
+    card.addEventListener('click', () => openVideo(id, card.dataset.title || ''));
   });
 
-  /* ---------- lightbox (screenshots only) ---------- */
+  /* ---------- lightbox ---------- */
   const lb = $('#lb'), lbBox = $('#lbBox'), lbCap = $('#lbCap');
   let lastFocus = null;
 
@@ -2111,8 +2135,17 @@ const CALENDLY_URL = "REPLACE_WITH_YOUR_CALENDLY_LINK"; // e.g. "https://calendl
   function closeLB() {
     lb.classList.remove('on');
     lockScroll(false);
-    setTimeout(() => { lbBox.innerHTML = ''; }, 400);
+    setTimeout(() => { lbBox.innerHTML = ''; }, 400); // kill the iframe -> stops audio
     if (lastFocus) lastFocus.focus();
+  }
+
+  function openVideo(id, title) {
+    openLB(
+      '<div class="lb-frame"><iframe src="https://www.youtube-nocookie.com/embed/' + id +
+      '?autoplay=1&rel=0&modestbranding=1" title="' + (title || 'Video').replace(/"/g, '') +
+      '" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>',
+      title, false
+    );
   }
 
   $$('.shot').forEach(fig => {

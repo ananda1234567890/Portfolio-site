@@ -339,7 +339,7 @@ body.menu-open .mobile-menu a.m-link{ opacity:1; transform:none; }
   background:
     radial-gradient(120% 90% at 50% 0%, rgba(255,255,255,.14) 0%, rgba(255,255,255,0) 60%),
     linear-gradient(165deg, var(--purple) 0%, #5a2bd8 48%, #34158f 100%);
-  box-shadow:0 40px 100px -34px rgba(90,43,216,.9), inset 0 1px 0 rgba(255,255,255,.2), 0 0 110px -20px rgba(124,77,255,.45);
+  box-shadow:0 40px 100px -34px rgba(90,43,216,.9), inset 0 1px 0 rgba(255,255,255,.2);
 }
 .portrait-frame img{
   width:100%; height:100%; object-fit:cover; object-position:top center;
@@ -364,8 +364,8 @@ body.menu-open .mobile-menu a.m-link{ opacity:1; transform:none; }
 
 .hero-copy .quote-mark{
   font-family:'Bricolage Grotesque',sans-serif; font-weight:800;
-  font-size:clamp(2.8rem,5.6vw,4rem); line-height:1; color:var(--purple);
-  display:block; margin-bottom:clamp(6px,1.2vw,12px); opacity:.85;
+  font-size:clamp(3.4rem,7vw,5rem); line-height:.6; color:var(--purple);
+  display:block; margin-bottom:6px; opacity:.85;
 }
 .hero-quote{
   font-size:clamp(1.85rem,4.05vw,3.35rem);
@@ -381,6 +381,31 @@ body.menu-open .mobile-menu a.m-link{ opacity:1; transform:none; }
 .hero-sub{ margin-top:26px; max-width:560px; }
 .hero-cta{ margin-top:34px; }
 
+.scroll-hint{
+  position:absolute; left:50%; bottom:26px; transform:translateX(-50%);
+  font-size:10.5px; letter-spacing:.22em; text-transform:uppercase; color:var(--muted-2);
+  display:flex; flex-direction:column; align-items:center; gap:9px;
+}
+.scroll-hint .bar{ width:1px; height:38px; background:linear-gradient(to bottom,var(--purple),transparent); }
+
+/* social rail */
+.rail{
+  position:fixed; right:20px; top:50%; transform:translateY(-50%); z-index:60;
+  display:flex; flex-direction:column; align-items:center; gap:14px;
+  opacity:0; transition:opacity .6s ease;
+}
+.rail.on{ opacity:1; }
+.rail .txt{ writing-mode:vertical-rl; font-size:10.5px; letter-spacing:.2em;
+  text-transform:uppercase; color:var(--muted-2); }
+.rail .ln{ width:1px; height:44px; background:var(--line-2); }
+.rail a{
+  width:33px; height:33px; border-radius:10px; display:grid; place-items:center;
+  background:rgba(124,77,255,.14); border:1px solid rgba(165,133,255,.2);
+  color:var(--purple-3);
+  transition:transform .35s var(--ease), background .35s ease, color .35s ease;
+}
+.rail a:hover{ transform:translateY(-3px); background:var(--purple); color:#fff; }
+.rail a svg{ width:15px; height:15px; }
 
 /* ============================================================
    6. MARQUEE
@@ -402,33 +427,6 @@ body.menu-open .mobile-menu a.m-link{ opacity:1; transform:none; }
   padding-inline:24px; color:var(--muted); white-space:nowrap;
 }
 .marquee-group i{ width:5px; height:5px; border-radius:50%; background:var(--purple); flex:none; }
-
-.marquee.clients{ background:rgba(124,77,255,.02); padding-block:16px; }
-.cmq-label{
-  text-align:center; padding-top:22px;
-  font-size:10.5px; font-weight:700; letter-spacing:.2em; text-transform:uppercase;
-  color:var(--muted-2);
-}
-.cmq-item{
-  display:flex; align-items:center; gap:12px; flex:none;
-  margin-inline:9px; padding:10px 18px 10px 10px; white-space:nowrap;
-  border-radius:100px; border:1px solid rgba(165,133,255,.16);
-  background:linear-gradient(120deg, rgba(124,77,255,.1), rgba(124,77,255,.03));
-  box-shadow:0 0 22px -10px rgba(124,77,255,.55);
-}
-.cmq-item img{
-  width:36px; height:36px; border-radius:50%; object-fit:cover; flex:none;
-  box-shadow:0 0 0 1px rgba(255,255,255,.16);
-  background:linear-gradient(150deg,var(--purple),#34158f);
-}
-.cmq-item .who{ display:flex; flex-direction:column; gap:2px; line-height:1.15; }
-.cmq-item .who .cn{
-  font-family:'Bricolage Grotesque',sans-serif; font-weight:700;
-  font-size:.92rem; letter-spacing:-.01em; color:var(--text);
-}
-.cmq-item .who .cs{
-  font-size:11px; font-weight:700; letter-spacing:.04em; color:var(--purple-3);
-}
 
 /* ============================================================
    7. LETTER (long-form)
@@ -496,11 +494,19 @@ body.menu-open .mobile-menu a.m-link{ opacity:1; transform:none; }
    9. TESTIMONIALS
    ============================================================ */
 .tst-feature{
+  display:grid; grid-template-columns:minmax(0,.42fr) minmax(0,1fr);
+  gap:clamp(28px,4vw,56px); align-items:center;
   padding:clamp(30px,4vw,52px);
   border-radius:var(--r-lg); border:1px solid var(--line);
   background:linear-gradient(150deg, rgba(124,77,255,.13) 0%, rgba(18,12,34,.6) 55%);
   backdrop-filter:blur(10px);
 }
+.tst-photo{
+  aspect-ratio:1/1.12; border-radius:var(--r-md); overflow:hidden;
+  background:linear-gradient(155deg,var(--purple),#34158f);
+  box-shadow:0 30px 70px -30px rgba(0,0,0,.9);
+}
+.tst-photo img{ width:100%; height:100%; object-fit:cover; }
 .tst-quote{
   font-family:'Bricolage Grotesque',sans-serif; font-weight:600;
   font-size:clamp(1.16rem,2.05vw,1.62rem); line-height:1.5; letter-spacing:-.022em;
@@ -508,9 +514,8 @@ body.menu-open .mobile-menu a.m-link{ opacity:1; transform:none; }
 }
 .tst-quote .hl{ color:var(--purple-2); }
 .tst-meta{ margin-top:26px; display:flex; align-items:center; gap:13px; }
-.tst-who{ display:flex; flex-direction:column; gap:2px; }
 .tst-meta .n{ font-weight:700; font-size:15.5px; color:#fff; letter-spacing:-.01em; }
-.tst-meta .r{ font-size:13px; color:var(--muted); }
+.tst-meta .r{ font-size:13px; color:var(--muted); margin-top:1px; }
 .stars{ display:flex; gap:3px; margin-bottom:16px; color:var(--gold); }
 .stars svg{ width:16px; height:16px; }
 
@@ -587,7 +592,7 @@ body.menu-open .mobile-menu a.m-link{ opacity:1; transform:none; }
   transition:background .5s ease;
 }
 .step:first-child{ border-top:1px solid var(--line); }
-.step:hover{ background:radial-gradient(560px 240px at -8% 50%, rgba(124,77,255,.10), transparent 72%); }
+.step:hover{ background:linear-gradient(90deg, rgba(124,77,255,.07), transparent 60%); }
 .step .idx{
   font-family:'Bricolage Grotesque',sans-serif; font-weight:800;
   font-size:clamp(2.1rem,4.4vw,3.3rem); line-height:.9; letter-spacing:-.05em;
@@ -597,12 +602,6 @@ body.menu-open .mobile-menu a.m-link{ opacity:1; transform:none; }
 .step:hover .idx{ color:var(--purple-2); -webkit-text-stroke-color:transparent; }
 .step h3{ font-size:clamp(1.28rem,2.4vw,1.85rem); letter-spacing:-.028em; }
 .step p{ margin-top:11px; font-size:15.5px; color:var(--muted); line-height:1.72; max-width:640px; }
-.step-ico{
-  display:inline-flex; align-items:center; justify-content:center;
-  width:38px; height:38px; border-radius:12px; margin-bottom:16px;
-  background:rgba(124,77,255,.16); border:1px solid rgba(165,133,255,.24); color:var(--purple-2);
-}
-.step-ico svg{ width:18px; height:18px; }
 
 /* ============================================================
    12. WHY / SPLIT
@@ -616,7 +615,7 @@ body.menu-open .mobile-menu a.m-link{ opacity:1; transform:none; }
   position:relative; border-radius:var(--r-lg); overflow:hidden;
   aspect-ratio:4/3.2;
   background:linear-gradient(160deg, var(--purple) 0%, #34158f 100%);
-  box-shadow:0 44px 100px -44px rgba(90,43,216,.85), 0 0 100px -22px rgba(124,77,255,.4);
+  box-shadow:0 44px 100px -44px rgba(90,43,216,.85);
   border:1px solid rgba(165,133,255,.2);
 }
 .split-media img{ width:100%; height:100%; object-fit:cover; }
@@ -648,7 +647,6 @@ body.menu-open .mobile-menu a.m-link{ opacity:1; transform:none; }
   transition:transform .55s var(--ease);
 }
 .vcard:hover{ transform:translateY(-8px); }
-.vcard.playing:hover{ transform:none; }
 .vthumb{
   position:relative; aspect-ratio:16/9; border-radius:var(--r-md); overflow:hidden;
   background:linear-gradient(150deg,#2a1a54,#150c2e);
@@ -657,7 +655,6 @@ body.menu-open .mobile-menu a.m-link{ opacity:1; transform:none; }
   transition:border-color .5s var(--ease), box-shadow .5s var(--ease);
 }
 .vcard:hover .vthumb{ border-color:rgba(165,133,255,.5); box-shadow:0 34px 74px -30px rgba(124,77,255,.6); }
-.vthumb iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; }
 .vthumb img{
   width:100%; height:100%; object-fit:cover;
   transition:transform .8s var(--ease), filter .6s ease;
@@ -688,13 +685,11 @@ body.menu-open .mobile-menu a.m-link{ opacity:1; transform:none; }
   border:1px solid rgba(255,255,255,.16); color:var(--purple-3);
 }
 .vmeta{ padding:18px 4px 0; }
-.vmeta .vtitle-row{ display:flex; align-items:baseline; gap:8px; flex-wrap:wrap; }
 .vmeta .vtitle{
   display:block;
   font-family:'Bricolage Grotesque','Inter',sans-serif; font-weight:800;
   font-size:1.06rem; letter-spacing:-.022em; line-height:1.32; color:var(--text);
 }
-.vmeta .vsubs{ font-size:12px; font-weight:600; color:var(--purple-2); white-space:nowrap; }
 .vmeta .sub{ margin-top:8px; font-size:13.5px; color:var(--muted); display:flex; align-items:center; gap:9px; flex-wrap:wrap; }
 .vmeta .sub .dot{ width:3px; height:3px; border-radius:50%; background:var(--muted-2); flex:none; }
 .vmeta .res{ color:var(--purple-2); font-weight:600; }
@@ -718,12 +713,16 @@ body.menu-open .mobile-menu a.m-link{ opacity:1; transform:none; }
 .shot{
   position:relative; border-radius:var(--r-md); overflow:hidden;
   border:1px solid var(--line); background:linear-gradient(150deg,#221547,#130b28);
-  cursor:zoom-in; display:flex; align-items:center;
+  aspect-ratio:16/11; cursor:zoom-in;
   transition:transform .55s var(--ease), border-color .5s var(--ease);
 }
 .shot:hover{ transform:translateY(-6px); border-color:rgba(165,133,255,.45); }
-.shot img{ width:100%; height:auto; display:block; }
-.shot.ph{ min-height:160px; }
+.shot img{ width:100%; height:100%; object-fit:cover; }
+.shot .cap{
+  position:absolute; left:0; right:0; bottom:0; z-index:3; padding:16px 18px;
+  background:linear-gradient(to top, rgba(8,4,24,.9), transparent);
+  font-size:13px; color:#E4DDF3; font-weight:500;
+}
 .shot.ph::before{
   content:'Cloudinary screenshot'; position:absolute; inset:0; z-index:2;
   display:grid; place-items:center;
@@ -737,12 +736,6 @@ body.menu-open .mobile-menu a.m-link{ opacity:1; transform:none; }
   margin-top:clamp(34px,4vw,56px);
 }
 .stat{ background:var(--bg-2); padding:clamp(26px,3vw,36px); text-align:center; }
-.stat .ico{
-  width:34px; height:34px; border-radius:10px; margin:0 auto 14px;
-  display:grid; place-items:center;
-  background:rgba(124,77,255,.14); border:1px solid rgba(165,133,255,.22); color:var(--purple-2);
-}
-.stat .ico svg{ width:16px; height:16px; }
 .stat .n{
   font-family:'Bricolage Grotesque',sans-serif; font-weight:800;
   font-size:clamp(2rem,3.6vw,2.9rem); letter-spacing:-.045em; line-height:1;
@@ -771,7 +764,7 @@ body.menu-open .mobile-menu a.m-link{ opacity:1; transform:none; }
 .story-photo{
   aspect-ratio:1/1.15; border-radius:var(--r-md); overflow:hidden;
   background:linear-gradient(155deg,var(--purple),#2b1180);
-  box-shadow:0 30px 70px -32px rgba(0,0,0,.95), 0 0 90px -18px rgba(124,77,255,.45);
+  box-shadow:0 30px 70px -32px rgba(0,0,0,.95);
   border:1px solid rgba(165,133,255,.2);
 }
 .story-photo img{ width:100%; height:100%; object-fit:cover; }
@@ -787,12 +780,6 @@ body.menu-open .mobile-menu a.m-link{ opacity:1; transform:none; }
   padding:20px 22px; border-radius:var(--r-sm);
   background:rgba(124,77,255,.09); border:1px solid rgba(165,133,255,.16);
 }
-.mark .ico{
-  width:30px; height:30px; border-radius:9px; margin-bottom:12px;
-  display:grid; place-items:center;
-  background:rgba(124,77,255,.16); border:1px solid rgba(165,133,255,.24); color:var(--purple-2);
-}
-.mark .ico svg{ width:15px; height:15px; }
 .mark .n{ font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:1.5rem;
   letter-spacing:-.035em; color:#fff; line-height:1; }
 .mark .l{ margin-top:8px; font-size:12px; color:var(--muted); line-height:1.5; }
@@ -811,13 +798,6 @@ body.menu-open .mobile-menu a.m-link{ opacity:1; transform:none; }
   color:var(--text); transition:color .35s ease;
 }
 .faq-q:hover{ color:var(--purple-2); }
-.faq-q-in{ display:flex; align-items:flex-start; gap:16px; }
-.faq-cat{
-  flex:none; width:34px; height:34px; border-radius:10px; margin-top:2px;
-  display:grid; place-items:center;
-  background:rgba(124,77,255,.14); border:1px solid rgba(165,133,255,.22); color:var(--purple-2);
-}
-.faq-cat svg{ width:16px; height:16px; }
 .faq-ico{
   width:32px; height:32px; border-radius:50%; flex:none; margin-top:-2px;
   display:grid; place-items:center; position:relative;
@@ -832,8 +812,7 @@ body.menu-open .mobile-menu a.m-link{ opacity:1; transform:none; }
 .faq-item.open .faq-ico{ background:var(--purple); border-color:var(--purple); color:#fff; transform:rotate(90deg); }
 .faq-item.open .faq-ico::after{ opacity:0; }
 .faq-a{ overflow:hidden; height:0; transition:height .5s var(--ease); }
-.faq-a-in{ padding-bottom:clamp(22px,2.6vw,32px); padding-left:50px; max-width:760px; }
-@media (max-width:520px){ .faq-a-in{ padding-left:0; } }
+.faq-a-in{ padding-bottom:clamp(22px,2.6vw,32px); max-width:760px; }
 .faq-a p{ font-size:15.5px; color:var(--muted); line-height:1.78; }
 
 /* ============================================================
@@ -873,25 +852,17 @@ body.menu-open .mobile-menu a.m-link{ opacity:1; transform:none; }
 }
 
 /* ============================================================
-   17b. CLOSER (standalone closing statement, end of main content)
-   ============================================================ */
-.closer{
-  text-align:center; border-top:1px solid var(--line);
-  padding-block:clamp(64px,8vw,108px);
-}
-.closer p{
-  font-family:'Bricolage Grotesque',sans-serif; font-weight:700;
-  font-size:clamp(1.7rem,3.6vw,2.6rem); letter-spacing:-.03em; line-height:1.26;
-  max-width:820px; margin-inline:auto;
-}
-
-/* ============================================================
    18. FOOTER
    ============================================================ */
-.footer{ padding-block:clamp(40px,5vw,56px) 34px; }
+.footer{ border-top:1px solid var(--line); padding-block:clamp(50px,6vw,72px) 34px; margin-top:clamp(60px,8vw,110px); }
 .foot-top{
   display:flex; flex-wrap:wrap; gap:34px; justify-content:space-between; align-items:flex-start;
   padding-bottom:40px; border-bottom:1px solid var(--line);
+}
+.foot-quote{
+  font-family:'Bricolage Grotesque',sans-serif; font-weight:700;
+  font-size:clamp(1.4rem,3vw,2.1rem); letter-spacing:-.03em; line-height:1.22;
+  max-width:600px;
 }
 .foot-links{ display:flex; flex-wrap:wrap; gap:26px; }
 .foot-col h4{ font-size:11.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--muted-2);
@@ -964,6 +935,7 @@ body.menu-open .mobile-menu a.m-link{ opacity:1; transform:none; }
   .nav-links{ display:none; }
   .burger{ display:block; }
   .nav-cta .btn{ display:none; }
+  .rail{ display:none; }
 }
 @media (max-width:960px){
   .hero{ min-height:auto; }
@@ -973,8 +945,11 @@ body.menu-open .mobile-menu a.m-link{ opacity:1; transform:none; }
   .portrait{ aspect-ratio:4/4.2; }
   .split{ grid-template-columns:1fr; gap:34px; }
   .split.rev .split-media{ order:0; }
+  .tst-feature{ grid-template-columns:1fr; }
+  .tst-photo{ max-width:280px; aspect-ratio:1/1; }
   .story-head{ grid-template-columns:1fr; }
   .story-photo{ max-width:300px; aspect-ratio:1/1; }
+  .scroll-hint{ display:none; }
 }
 @media (max-width:640px){
   body{ line-height:1.68; }
@@ -1050,6 +1025,22 @@ body.menu-open .mobile-menu a.m-link{ opacity:1; transform:none; }
   <a href="#book" class="btn big" data-cta>Book a Free Growth Audit</a>
 </nav>
 
+<!-- social rail (desktop) -->
+<aside class="rail" id="rail" aria-label="Social links">
+  <span class="txt">Follow me on</span>
+  <span class="ln"></span>
+  <!-- REPLACE: your real social URLs -->
+  <a href="https://youtube.com/@REPLACE" target="_blank" rel="noopener" aria-label="YouTube">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8ZM9.6 15.6V8.4l6.2 3.6-6.2 3.6Z"/></svg>
+  </a>
+  <a href="https://linkedin.com/in/REPLACE" target="_blank" rel="noopener" aria-label="LinkedIn">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.4 20.4h-3.6v-5.6c0-1.3 0-3-1.9-3s-2.1 1.4-2.1 2.9v5.7H9.2V9h3.4v1.6h.1c.5-.9 1.7-1.9 3.4-1.9 3.6 0 4.3 2.4 4.3 5.5v6.2ZM5.3 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2ZM7.1 20.4H3.5V9h3.6v11.4Z"/></svg>
+  </a>
+  <a href="https://instagram.com/REPLACE" target="_blank" rel="noopener" aria-label="Instagram">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.3 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.3 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.3-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.3-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4 1.3-.1 1.7-.1 4.9-.1Zm0 5.8a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm0 6.6a2.6 2.6 0 1 1 0-5.2 2.6 2.6 0 0 1 0 5.2Zm5.1-6.8a.94.94 0 1 1-1.88 0 .94.94 0 0 1 1.88 0Z"/></svg>
+  </a>
+</aside>
+
 <main id="top">
 
 <!-- ============================================================
@@ -1106,13 +1097,18 @@ body.menu-open .mobile-menu a.m-link{ opacity:1; transform:none; }
 
     </div>
   </div>
+
+  <div class="scroll-hint" aria-hidden="true">
+    <span>Scroll</span>
+    <span class="bar"></span>
+  </div>
 </section>
 
 <!-- ============================================================
      MARQUEE
      ============================================================ -->
 <div class="marquee" aria-hidden="true">
-  <div class="marquee-track" data-marquee>
+  <div class="marquee-track" id="marquee">
     <div class="marquee-group">
       <span>Editing</span><i></i>
       <span>Retention</span><i></i>
@@ -1123,21 +1119,6 @@ body.menu-open .mobile-menu a.m-link{ opacity:1; transform:none; }
       <span>Uploads</span><i></i>
       <span>Scheduling</span><i></i>
       <span>Branding</span><i></i>
-    </div>
-  </div>
-</div>
-
-<p class="cmq-label" aria-hidden="true">Trusted by creators &amp; brands</p>
-<div class="marquee clients" aria-label="Clients">
-  <div class="marquee-track" data-marquee>
-    <div class="marquee-group">
-      <span class="cmq-item"><img src="https://res.cloudinary.com/dqcoveq5p/image/upload/v1787840000/channels4_profile_j48kb0.jpg" alt="" loading="lazy"><span class="who"><span class="cn">Randy Gage</span><span class="cs">235K SUBS</span></span></span>
-      <span class="cmq-item"><img src="https://res.cloudinary.com/dqcoveq5p/image/upload/v1776452541/channels4_profile_qymomn.jpg" alt="" loading="lazy"><span class="who"><span class="cn">ArborXR</span><span class="cs">1K SUBS</span></span></span>
-      <span class="cmq-item"><img src="https://res.cloudinary.com/dqcoveq5p/image/upload/v1776452541/Christian_youluz.jpg" alt="" loading="lazy"><span class="who"><span class="cn">Christian Wattig</span><span class="cs">17K SUBS</span></span></span>
-      <span class="cmq-item"><img src="https://res.cloudinary.com/dqcoveq5p/image/upload/v1776452802/channels4_profile_2_pvrram.jpg" alt="" loading="lazy"><span class="who"><span class="cn">Your CFO Guy</span><span class="cs">77.7K SUBS</span></span></span>
-      <span class="cmq-item"><img src="https://res.cloudinary.com/dqcoveq5p/image/upload/v1776452541/channels4_profile_1_hddjmz.jpg" alt="" loading="lazy"><span class="who"><span class="cn">Samu Kov&aacute;cs</span><span class="cs">2.5K SUBS</span></span></span>
-      <span class="cmq-item"><img src="https://res.cloudinary.com/dqcoveq5p/image/upload/v1776452541/rachel_h1apds.jpg" alt="" loading="lazy"><span class="who"><span class="cn">Rachel Rof&eacute;</span><span class="cs">16K SUBS</span></span></span>
-      <span class="cmq-item"><img src="https://res.cloudinary.com/dqcoveq5p/image/upload/v1776452541/Sam_Dunning_ra7g0f.jpg" alt="" loading="lazy"><span class="who"><span class="cn">Sam Dunning</span><span class="cs">3.43K SUBS</span></span></span>
     </div>
   </div>
 </div>
@@ -1237,24 +1218,31 @@ body.menu-open .mobile-menu a.m-link{ opacity:1; transform:none; }
   <div class="wrap">
 
     <div class="tst-feature rv">
-      <div class="stars" aria-label="5 out of 5">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.9 7.5.6-5.7 4.9 1.7 7.3L12 17.8 5.5 21.7l1.7-7.3L1.5 9.5 9 8.9z"/></svg>
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.9 7.5.6-5.7 4.9 1.7 7.3L12 17.8 5.5 21.7l1.7-7.3L1.5 9.5 9 8.9z"/></svg>
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.9 7.5.6-5.7 4.9 1.7 7.3L12 17.8 5.5 21.7l1.7-7.3L1.5 9.5 9 8.9z"/></svg>
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.9 7.5.6-5.7 4.9 1.7 7.3L12 17.8 5.5 21.7l1.7-7.3L1.5 9.5 9 8.9z"/></svg>
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.9 7.5.6-5.7 4.9 1.7 7.3L12 17.8 5.5 21.7l1.7-7.3L1.5 9.5 9 8.9z"/></svg>
+      <div class="tst-photo">
+        <!-- REPLACE: Cloudinary URL — Randy Gage headshot -->
+        <img src="REPLACE_WITH_CLOUDINARY_RANDY_GAGE_HEADSHOT" alt="Randy Gage" />
       </div>
-      <blockquote class="tst-quote">
-        &ldquo;I don&rsquo;t hand my brand to just anyone and I don&rsquo;t give praise just to be polite. Ananda&rsquo;s earned both. He&rsquo;s a mad genius, and he treats my channel like it&rsquo;s his own. Ananda&rsquo;s work is brilliant, and he always meets deadlines. Rare combination. <span class="hl">We&rsquo;re adding 15k subscribers a week right now, thanks to his help.</span>&rdquo;
-      </blockquote>
-      <div class="tst-meta">
-        <span class="av">
-          <img src="https://res.cloudinary.com/dqcoveq5p/image/upload/v1787840000/channels4_profile_j48kb0.jpg" alt="Randy Gage" loading="lazy" />
-        </span>
-        <span class="tst-who">
-          <span class="n">Randy Gage</span>
-          <span class="r">Founder, Breakthrough U Entrepreneur Accelerator</span>
-        </span>
+      <div>
+        <div class="stars" aria-label="5 out of 5">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.9 7.5.6-5.7 4.9 1.7 7.3L12 17.8 5.5 21.7l1.7-7.3L1.5 9.5 9 8.9z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.9 7.5.6-5.7 4.9 1.7 7.3L12 17.8 5.5 21.7l1.7-7.3L1.5 9.5 9 8.9z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.9 7.5.6-5.7 4.9 1.7 7.3L12 17.8 5.5 21.7l1.7-7.3L1.5 9.5 9 8.9z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.9 7.5.6-5.7 4.9 1.7 7.3L12 17.8 5.5 21.7l1.7-7.3L1.5 9.5 9 8.9z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.9 7.5.6-5.7 4.9 1.7 7.3L12 17.8 5.5 21.7l1.7-7.3L1.5 9.5 9 8.9z"/></svg>
+        </div>
+        <blockquote class="tst-quote">
+          &ldquo;I don&rsquo;t hand my brand to just anyone and I don&rsquo;t give praise just to be polite. Ananda&rsquo;s earned both. He&rsquo;s a mad genius, and he treats my channel like it&rsquo;s his own. Ananda&rsquo;s work is brilliant, and he always meets deadlines. Rare combination. <span class="hl">We&rsquo;re adding 15k subscribers a week right now, thanks to his help.</span>&rdquo;
+        </blockquote>
+        <div class="tst-meta">
+          <span class="av">
+            <!-- REPLACE: Cloudinary URL — Randy Gage avatar (square) -->
+            <img src="REPLACE_WITH_CLOUDINARY_RANDY_GAGE_AVATAR" alt="" />
+          </span>
+          <span>
+            <span class="n">Randy Gage</span>
+            <span class="r">Founder, Breakthrough U Entrepreneur Accelerator</span>
+          </span>
+        </div>
       </div>
     </div>
 
@@ -1268,14 +1256,16 @@ body.menu-open .mobile-menu a.m-link{ opacity:1; transform:none; }
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.9 7.5.6-5.7 4.9 1.7 7.3L12 17.8 5.5 21.7l1.7-7.3L1.5 9.5 9 8.9z"/></svg>
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.9 7.5.6-5.7 4.9 1.7 7.3L12 17.8 5.5 21.7l1.7-7.3L1.5 9.5 9 8.9z"/></svg>
         </div>
-        <p>&ldquo;It&rsquo;s been a really awesome experience. He&rsquo;s a super skilled editor, also really receptive to feedback, and the communication was pretty good. Overall, it was a super good experience. He&rsquo;s a total professional, so if you&rsquo;re thinking about starting to work with him and maybe giving him a chance, I can honestly recommend him to everyone else.&rdquo;</p>
+        <!-- REPLACE: Testimonial 2 quote -->
+        <p>&ldquo;REPLACE &mdash; paste testimonial 2 here. Keep the strongest, most specific sentence at the end so it lands.&rdquo;</p>
         <div class="tst-meta" style="margin-top:20px">
           <span class="av">
-            <img src="https://res.cloudinary.com/dqcoveq5p/image/upload/v1776452541/channels4_profile_1_hddjmz.jpg" alt="Samu Kovács" loading="lazy" />
+            <!-- REPLACE: Cloudinary URL — testimonial 2 headshot -->
+            <img src="REPLACE_WITH_CLOUDINARY_TESTIMONIAL_2" alt="" />
           </span>
-          <span class="tst-who">
-            <span class="n">Samu Kov&aacute;cs</span>
-            <span class="r">Founder, Ks Media</span>
+          <span>
+            <span class="n">Client Name</span>
+            <span class="r">Title, Channel</span>
           </span>
         </div>
       </div>
@@ -1341,8 +1331,8 @@ body.menu-open .mobile-menu a.m-link{ opacity:1; transform:none; }
 
     </div>
 
-    <!-- Testimonial 3 -->
-    <div class="tst-grid" style="margin-top:clamp(30px,4vw,52px); max-width:640px; margin-inline:auto">
+    <!-- Testimonials 3 & 4 -->
+    <div class="tst-grid" style="margin-top:clamp(30px,4vw,52px)">
 
       <div class="tst-card rv">
         <div class="stars" aria-label="5 out of 5">
@@ -1352,12 +1342,33 @@ body.menu-open .mobile-menu a.m-link{ opacity:1; transform:none; }
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.9 7.5.6-5.7 4.9 1.7 7.3L12 17.8 5.5 21.7l1.7-7.3L1.5 9.5 9 8.9z"/></svg>
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.9 7.5.6-5.7 4.9 1.7 7.3L12 17.8 5.5 21.7l1.7-7.3L1.5 9.5 9 8.9z"/></svg>
         </div>
-        <p>&ldquo;I&rsquo;ve been working with Ananda for quite a while and the only thing I can say is the guy is a gem. The guy knows his job perfectly, he executes it perfectly, and with the communication part, he has some great communication skills. He responds as quickly as possible, and that&rsquo;s for sure. The guy is like he can read your mind.&rdquo;</p>
+        <!-- REPLACE: Testimonial 3 quote -->
+        <p>&ldquo;REPLACE &mdash; paste testimonial 3 here.&rdquo;</p>
         <div class="tst-meta" style="margin-top:20px">
           <span class="av">
-            <img src="https://res.cloudinary.com/dqcoveq5p/image/upload/v1787842699/channels4_profile_br9qko.jpg" alt="Maaz" loading="lazy" />
+            <!-- REPLACE: Cloudinary URL — testimonial 3 headshot -->
+            <img src="REPLACE_WITH_CLOUDINARY_TESTIMONIAL_3" alt="" />
           </span>
-          <span class="tst-who"><span class="n">Maaz</span><span class="r">Founder, Glore</span></span>
+          <span><span class="n">Client Name</span><span class="r">Title, Channel</span></span>
+        </div>
+      </div>
+
+      <div class="tst-card rv rv-d1">
+        <div class="stars" aria-label="5 out of 5">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.9 7.5.6-5.7 4.9 1.7 7.3L12 17.8 5.5 21.7l1.7-7.3L1.5 9.5 9 8.9z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.9 7.5.6-5.7 4.9 1.7 7.3L12 17.8 5.5 21.7l1.7-7.3L1.5 9.5 9 8.9z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.9 7.5.6-5.7 4.9 1.7 7.3L12 17.8 5.5 21.7l1.7-7.3L1.5 9.5 9 8.9z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.9 7.5.6-5.7 4.9 1.7 7.3L12 17.8 5.5 21.7l1.7-7.3L1.5 9.5 9 8.9z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.9 7.5.6-5.7 4.9 1.7 7.3L12 17.8 5.5 21.7l1.7-7.3L1.5 9.5 9 8.9z"/></svg>
+        </div>
+        <!-- REPLACE: Testimonial 4 quote -->
+        <p>&ldquo;REPLACE &mdash; paste testimonial 4 here.&rdquo;</p>
+        <div class="tst-meta" style="margin-top:20px">
+          <span class="av">
+            <!-- REPLACE: Cloudinary URL — testimonial 4 headshot -->
+            <img src="REPLACE_WITH_CLOUDINARY_TESTIMONIAL_4" alt="" />
+          </span>
+          <span><span class="n">Client Name</span><span class="r">Title, Channel</span></span>
         </div>
       </div>
 
@@ -1381,7 +1392,6 @@ body.menu-open .mobile-menu a.m-link{ opacity:1; transform:none; }
       <div class="step rv">
         <span class="idx">01</span>
         <div>
-          <span class="step-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M16 3v4M8 3v4M3 11h18"/></svg></span>
           <h3>Book your free growth audit.</h3>
           <p>One link, one slot on the calendar. That&rsquo;s the whole commitment.</p>
         </div>
@@ -1389,7 +1399,6 @@ body.menu-open .mobile-menu a.m-link{ opacity:1; transform:none; }
       <div class="step rv">
         <span class="idx">02</span>
         <div>
-          <span class="step-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r=".6" fill="currentColor"/></svg></span>
           <h3>Ananda maps exactly where your channel is leaking growth.</h3>
           <p>Retention, packaging, metadata, publishing cadence &mdash; looked at by the person who would actually do the work.</p>
         </div>
@@ -1397,7 +1406,6 @@ body.menu-open .mobile-menu a.m-link{ opacity:1; transform:none; }
       <div class="step rv">
         <span class="idx">03</span>
         <div>
-          <span class="step-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5 19 6v6c0 4.5-3.1 7.3-7 8.5-3.9-1.2-7-4-7-8.5V6l7-2.5Z"/><path d="m9 12 2 2 4-4"/></svg></span>
           <h3>No pitch, no obligation.</h3>
           <p>Worst case, you walk away with a map of exactly what&rsquo;s holding your channel back.</p>
         </div>
@@ -1405,7 +1413,6 @@ body.menu-open .mobile-menu a.m-link{ opacity:1; transform:none; }
       <div class="step rv">
         <span class="idx">04</span>
         <div>
-          <span class="step-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5c2.3 1.9 3.7 4.7 3.7 8 0 1.8-.5 3.4-1.3 4.8L12 21.5l-2.4-6.2A8.9 8.9 0 0 1 8.3 10.5c0-3.3 1.4-6.1 3.7-8Z"/><circle cx="12" cy="10.2" r="1.5"/><path d="m8.8 15.2-2.3 2.3M15.2 15.2l2.3 2.3"/></svg></span>
           <h3>Best case: his team takes the back end off your plate.</h3>
           <p>And you get back to creating.</p>
         </div>
@@ -1479,8 +1486,7 @@ body.menu-open .mobile-menu a.m-link{ opacity:1; transform:none; }
     <!-- ============================================================
          HOW TO ADD A VIDEO:
          Paste any YouTube URL (or bare 11-character video ID) into data-yt.
-         The thumbnail is fetched automatically. Clicking plays it inline,
-         right in the grid — no pop-up.
+         The thumbnail is fetched automatically. Clicking opens it in the player.
          Accepted formats:
            data-yt="https://www.youtube.com/watch?v=XXXXXXXXXXX"
            data-yt="https://youtu.be/XXXXXXXXXXX"
@@ -1488,77 +1494,59 @@ body.menu-open .mobile-menu a.m-link{ opacity:1; transform:none; }
          ============================================================ -->
     <div class="work-grid">
 
-      <div class="vcard rv" role="button" tabindex="0" data-yt="hoUvDk1rkug" data-title="7 Questions That Decide if You Get Rich — Randy Gage">
-        <div class="vthumb"><img alt="" /><span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
+      <!-- REPLACE: video 1 -->
+      <button class="vcard rv" data-yt="REPLACE_YOUTUBE_URL_1" data-title="Client video 1">
+        <div class="vthumb"><span class="vtag">Case Study</span><img alt="" /><span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
         <div class="vmeta">
-          <span class="vtitle-row"><span class="vtitle">Randy Gage</span><span class="vsubs">235K subs</span></span>
-          <div class="sub"><span>Long-form edit</span></div>
+          <span class="vtitle">REPLACE &mdash; video / client name</span>
+          <div class="sub"><span class="res">REPLACE &mdash; the result</span><span class="dot"></span><span>Long-form edit</span></div>
         </div>
-      </div>
+      </button>
 
-      <div class="vcard rv rv-d1" role="button" tabindex="0" data-yt="QILxE2CwgTs" data-title="Why I'd Burn an MBA Before I'd Frame One — Randy Gage">
-        <div class="vthumb"><img alt="" /><span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
+      <!-- REPLACE: video 2 -->
+      <button class="vcard rv rv-d1" data-yt="REPLACE_YOUTUBE_URL_2" data-title="Client video 2">
+        <div class="vthumb"><span class="vtag">Case Study</span><img alt="" /><span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
         <div class="vmeta">
-          <span class="vtitle-row"><span class="vtitle">Randy Gage</span><span class="vsubs">235K subs</span></span>
-          <div class="sub"><span>Long-form edit</span></div>
+          <span class="vtitle">REPLACE &mdash; video / client name</span>
+          <div class="sub"><span class="res">REPLACE &mdash; the result</span><span class="dot"></span><span>Long-form edit</span></div>
         </div>
-      </div>
+      </button>
 
-      <div class="vcard rv rv-d2" role="button" tabindex="0" data-yt="GZE8_weVPwk" data-title="VR Training For Manufacturing (Full Guide) — ArborXR">
-        <div class="vthumb"><img alt="" /><span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
+      <!-- REPLACE: video 3 -->
+      <button class="vcard rv rv-d2" data-yt="REPLACE_YOUTUBE_URL_3" data-title="Client video 3">
+        <div class="vthumb"><span class="vtag">Case Study</span><img alt="" /><span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
         <div class="vmeta">
-          <span class="vtitle-row"><span class="vtitle">ArborXR</span><span class="vsubs">1K subs</span></span>
-          <div class="sub"><span>Long-form edit</span></div>
+          <span class="vtitle">REPLACE &mdash; video / client name</span>
+          <div class="sub"><span class="res">REPLACE &mdash; the result</span><span class="dot"></span><span>Long-form edit</span></div>
         </div>
-      </div>
+      </button>
 
-      <div class="vcard rv" role="button" tabindex="0" data-yt="5KgAh2edlCs" data-title="How to Use VR For Training in Your Business (2025 GUIDE) — ArborXR">
-        <div class="vthumb"><img alt="" /><span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
+      <!-- REPLACE: video 4 -->
+      <button class="vcard rv" data-yt="REPLACE_YOUTUBE_URL_4" data-title="Client video 4">
+        <div class="vthumb"><span class="vtag">Case Study</span><img alt="" /><span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
         <div class="vmeta">
-          <span class="vtitle-row"><span class="vtitle">ArborXR</span><span class="vsubs">1K subs</span></span>
-          <div class="sub"><span>Long-form edit</span></div>
+          <span class="vtitle">REPLACE &mdash; video / client name</span>
+          <div class="sub"><span class="res">REPLACE &mdash; the result</span><span class="dot"></span><span>Long-form edit</span></div>
         </div>
-      </div>
+      </button>
 
-      <div class="vcard rv rv-d1" role="button" tabindex="0" data-yt="4F8pak9Owo8" data-title="How to Start Print on Demand With $0 in 2025 — Rachel Rofé">
-        <div class="vthumb"><img alt="" /><span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
+      <!-- REPLACE: video 5 -->
+      <button class="vcard rv rv-d1" data-yt="REPLACE_YOUTUBE_URL_5" data-title="Client video 5">
+        <div class="vthumb"><span class="vtag">Case Study</span><img alt="" /><span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
         <div class="vmeta">
-          <span class="vtitle-row"><span class="vtitle">Rachel Rof&eacute;</span><span class="vsubs">16K subs</span></span>
-          <div class="sub"><span>Long-form edit</span></div>
+          <span class="vtitle">REPLACE &mdash; video / client name</span>
+          <div class="sub"><span class="res">REPLACE &mdash; the result</span><span class="dot"></span><span>Long-form edit</span></div>
         </div>
-      </div>
+      </button>
 
-      <div class="vcard rv rv-d2" role="button" tabindex="0" data-yt="ioKI4tNyPC0" data-title="BEST SaaS Marketing Strategy to Grow to $500k+ MRR — Sam Dunning">
-        <div class="vthumb"><img alt="" /><span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
+      <!-- REPLACE: video 6 -->
+      <button class="vcard rv rv-d2" data-yt="REPLACE_YOUTUBE_URL_6" data-title="Client video 6">
+        <div class="vthumb"><span class="vtag">Case Study</span><img alt="" /><span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
         <div class="vmeta">
-          <span class="vtitle-row"><span class="vtitle">Sam Dunning &mdash; Breaking B2B</span><span class="vsubs">3.43K subs</span></span>
-          <div class="sub"><span>Long-form edit</span></div>
+          <span class="vtitle">REPLACE &mdash; video / client name</span>
+          <div class="sub"><span class="res">REPLACE &mdash; the result</span><span class="dot"></span><span>Long-form edit</span></div>
         </div>
-      </div>
-
-      <div class="vcard rv" role="button" tabindex="0" data-yt="IiHvE3ftmMo" data-title="Complete On-Page SEO Checklist For B2B (2025) — Sam Dunning">
-        <div class="vthumb"><img alt="" /><span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
-        <div class="vmeta">
-          <span class="vtitle-row"><span class="vtitle">Sam Dunning &mdash; Breaking B2B</span><span class="vsubs">3.43K subs</span></span>
-          <div class="sub"><span>Long-form edit</span></div>
-        </div>
-      </div>
-
-      <div class="vcard rv rv-d1" role="button" tabindex="0" data-yt="vYgzFwSXnLA" data-title="Why Your Business Needs VR in 2025 — ArborXR">
-        <div class="vthumb"><img alt="" /><span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
-        <div class="vmeta">
-          <span class="vtitle-row"><span class="vtitle">ArborXR</span><span class="vsubs">1K subs</span></span>
-          <div class="sub"><span>Long-form edit</span></div>
-        </div>
-      </div>
-
-      <div class="vcard rv rv-d2" role="button" tabindex="0" data-yt="gIDLVACj3-A" data-title="PowerPoint Presentations Are DEAD in Finance, Do This Instead — Christian Wattig">
-        <div class="vthumb"><img alt="" /><span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
-        <div class="vmeta">
-          <span class="vtitle-row"><span class="vtitle">Christian Wattig</span><span class="vsubs">17K subs</span></span>
-          <div class="sub"><span>Long-form edit</span></div>
-        </div>
-      </div>
+      </button>
 
     </div>
 
@@ -1586,47 +1574,45 @@ body.menu-open .mobile-menu a.m-link{ opacity:1; transform:none; }
 
     <!-- Video testimonials -->
     <div class="work-grid" style="margin-bottom:clamp(18px,2.2vw,28px)">
-      <div class="vcard rv" role="button" tabindex="0" data-yt="uSOlFhOk75g" data-title="Samu Kovács — video testimonial">
+      <!-- REPLACE: video testimonial 1 -->
+      <button class="vcard rv" data-yt="REPLACE_YOUTUBE_TESTIMONIAL_URL_1" data-title="Video testimonial 1">
         <div class="vthumb"><span class="vtag">Testimonial</span><img alt="" /><span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
-        <div class="vmeta"><span class="vtitle">Samu Kov&aacute;cs</span><div class="sub"><span class="res">Video testimonial</span></div></div>
-      </div>
-      <div class="vcard rv rv-d1" role="button" tabindex="0" data-yt="cD5JpbKqYZk" data-title="Aditya — video testimonial">
+        <div class="vmeta"><span class="vtitle">REPLACE &mdash; client name</span><div class="sub"><span class="res">Video testimonial</span></div></div>
+      </button>
+      <!-- REPLACE: video testimonial 2 -->
+      <button class="vcard rv rv-d1" data-yt="REPLACE_YOUTUBE_TESTIMONIAL_URL_2" data-title="Video testimonial 2">
         <div class="vthumb"><span class="vtag">Testimonial</span><img alt="" /><span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
-        <div class="vmeta"><span class="vtitle">Aditya</span><div class="sub"><span class="res">Video testimonial</span></div></div>
-      </div>
-      <div class="vcard rv rv-d2" role="button" tabindex="0" data-yt="yR-DEZzF39M" data-title="Maaz — video testimonial">
+        <div class="vmeta"><span class="vtitle">REPLACE &mdash; client name</span><div class="sub"><span class="res">Video testimonial</span></div></div>
+      </button>
+      <!-- REPLACE: video testimonial 3 -->
+      <button class="vcard rv rv-d2" data-yt="REPLACE_YOUTUBE_TESTIMONIAL_URL_3" data-title="Video testimonial 3">
         <div class="vthumb"><span class="vtag">Testimonial</span><img alt="" /><span class="play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></div>
-        <div class="vmeta"><span class="vtitle">Maaz</span><div class="sub"><span class="res">Video testimonial</span></div></div>
-      </div>
+        <div class="vmeta"><span class="vtitle">REPLACE &mdash; client name</span><div class="sub"><span class="res">Video testimonial</span></div></div>
+      </button>
     </div>
 
     <!-- Analytics screenshots -->
     <div class="proof-grid">
-      <figure class="shot rv" data-img="https://res.cloudinary.com/dqcoveq5p/image/upload/v1776437847/IMG_3941_yofcwg.jpg" style="margin:0">
-        <img src="https://res.cloudinary.com/dqcoveq5p/image/upload/v1776437847/IMG_3941_yofcwg.jpg" alt="Unsolicited chat reaction to a finished edit" loading="lazy" />
+      <!-- REPLACE: Cloudinary screenshot URLs + captions -->
+      <figure class="shot rv" data-img="REPLACE_WITH_CLOUDINARY_SCREENSHOT_1" style="margin:0">
+        <img src="REPLACE_WITH_CLOUDINARY_SCREENSHOT_1" alt="Channel analytics screenshot" />
+        <figcaption class="cap">REPLACE &mdash; what this screenshot proves</figcaption>
       </figure>
-      <figure class="shot rv rv-d1" data-img="https://res.cloudinary.com/dqcoveq5p/image/upload/v1776437093/Screenshot_2025-06-25_103834_dbuidd.png" style="margin:0">
-        <img src="https://res.cloudinary.com/dqcoveq5p/image/upload/v1776437093/Screenshot_2025-06-25_103834_dbuidd.png" alt="Samu Kovács giving direct feedback on a video" loading="lazy" />
+      <figure class="shot rv rv-d1" data-img="REPLACE_WITH_CLOUDINARY_SCREENSHOT_2" style="margin:0">
+        <img src="REPLACE_WITH_CLOUDINARY_SCREENSHOT_2" alt="Channel analytics screenshot" />
+        <figcaption class="cap">REPLACE &mdash; what this screenshot proves</figcaption>
+      </figure>
+      <figure class="shot rv rv-d2" data-img="REPLACE_WITH_CLOUDINARY_SCREENSHOT_3" style="margin:0">
+        <img src="REPLACE_WITH_CLOUDINARY_SCREENSHOT_3" alt="Channel analytics screenshot" />
+        <figcaption class="cap">REPLACE &mdash; what this screenshot proves</figcaption>
       </figure>
     </div>
 
     <div class="stat-row rv">
-      <div class="stat">
-        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17 9 11l4 4 8-8"/><path d="M15 7h6v6"/></svg></span>
-        <div class="n" data-count="15" data-suffix="K">0</div><div class="l">Subscribers added<br>per week, current client</div>
-      </div>
-      <div class="stat">
-        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19c0-3.3 2.5-5.5 5.5-5.5s5.5 2.2 5.5 5.5"/><path d="M16 8.2a3 3 0 1 1 0 6M17.8 13.6c2 .4 3.2 2.2 3.2 4.4"/></svg></span>
-        <div class="n" data-count="25" data-suffix="K">0</div><div class="l">Subscribers grown<br>single-handed</div>
-      </div>
-      <div class="stat">
-        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5 19 6v6c0 4.5-3.1 7.3-7 8.5-3.9-1.2-7-4-7-8.5V6l7-3.5Z"/></svg></span>
-        <div class="n" data-count="100" data-suffix="%">0</div><div class="l">Founder-led<br>on every account</div>
-      </div>
-      <div class="stat">
-        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.7 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.7-3.8-9S9.5 5.5 12 3Z"/></svg></span>
-        <div class="n">Global</div><div class="l">Clients across<br>the world</div>
-      </div>
+      <div class="stat"><div class="n" data-count="15" data-suffix="K">0</div><div class="l">Subscribers added<br>per week, current client</div></div>
+      <div class="stat"><div class="n" data-count="25" data-suffix="K">0</div><div class="l">Subscribers grown<br>single-handed</div></div>
+      <div class="stat"><div class="n">100%</div><div class="l">Founder-led<br>on every account</div></div>
+      <div class="stat"><div class="n">Global</div><div class="l">Clients across<br>the world</div></div>
     </div>
 
   </div>
@@ -1664,22 +1650,10 @@ body.menu-open .mobile-menu a.m-link{ opacity:1; transform:none; }
         </p>
 
         <div class="story-marks">
-          <div class="mark">
-            <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V10l5-4 5 4v11M4 21h16M9 21v-6h4v6M15 21v-7l5-3v10"/></svg></span>
-            <div class="n" data-count="150" data-prefix="$">$0</div><div class="l">The monthly ceiling he started from</div>
-          </div>
-          <div class="mark">
-            <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5V5.5a2 2 0 0 1 2-2h11.5v15H6a2 2 0 0 0 0 4h13.5"/></svg></span>
-            <div class="n" data-count="40" data-prefix="$">$0</div><div class="l">The course he bought to learn the craft</div>
-          </div>
-          <div class="mark">
-            <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 19c0-3.3 2.5-5.5 5.5-5.5s5.5 2.2 5.5 5.5"/><path d="M16 8.2a3 3 0 1 1 0 6M17.8 13.6c2 .4 3.2 2.2 3.2 4.4"/></svg></span>
-            <div class="n" data-count="25000" data-locale="1">0</div><div class="l">Subscribers grown single-handed</div>
-          </div>
-          <div class="mark">
-            <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.7 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.7-3.8-9S9.5 5.5 12 3Z"/></svg></span>
-            <div class="n">Global</div><div class="l">Clients across the world today</div>
-          </div>
+          <div class="mark"><div class="n">$150</div><div class="l">The monthly ceiling he started from</div></div>
+          <div class="mark"><div class="n">$40</div><div class="l">The course he bought to learn the craft</div></div>
+          <div class="mark"><div class="n">25,000</div><div class="l">Subscribers grown single-handed</div></div>
+          <div class="mark"><div class="n">Global</div><div class="l">Clients across the world today</div></div>
         </div>
 
         <p>
@@ -1719,10 +1693,7 @@ body.menu-open .mobile-menu a.m-link{ opacity:1; transform:none; }
 
         <div class="faq-item rv">
           <button class="faq-q" aria-expanded="false">
-            <span class="faq-q-in">
-              <span class="faq-cat" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 0 0-4 4v5a4 4 0 0 0 8 0V6a4 4 0 0 0-4-4Z"/><path d="M5 11v1a7 7 0 0 0 14 0v-1M12 19v3"/></svg></span>
-              <span>Will they &ldquo;get&rdquo; my voice?</span>
-            </span>
+            <span>Will they &ldquo;get&rdquo; my voice?</span>
             <span class="faq-ico" aria-hidden="true"></span>
           </button>
           <div class="faq-a">
@@ -1734,10 +1705,7 @@ body.menu-open .mobile-menu a.m-link{ opacity:1; transform:none; }
 
         <div class="faq-item rv rv-d1">
           <button class="faq-q" aria-expanded="false">
-            <span class="faq-q-in">
-              <span class="faq-cat" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c4-3.5 7-7.4 7-11.5A7 7 0 0 0 5 10.5C5 14.6 8 18.5 12 22Z"/><path d="M12 8v5M9.5 10.5h5"/></svg></span>
-              <span>What if I&rsquo;m too small to be worth it?</span>
-            </span>
+            <span>What if I&rsquo;m too small to be worth it?</span>
             <span class="faq-ico" aria-hidden="true"></span>
           </button>
           <div class="faq-a">
@@ -1788,19 +1756,10 @@ body.menu-open .mobile-menu a.m-link{ opacity:1; transform:none; }
       </div>
 
       <p class="cta-note center" style="margin-top:24px; justify-content:center">
-        Prefer email? <a href="mailto:intouch.ananda@gmail.com" style="color:var(--purple-2); text-decoration:underline; text-underline-offset:3px">intouch.ananda@gmail.com</a>
+        Prefer email? <a href="mailto:REPLACE@YOUREMAIL.com" style="color:var(--purple-2); text-decoration:underline; text-underline-offset:3px">REPLACE@YOUREMAIL.com</a>
       </p>
 
     </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     CLOSER — standalone closing statement, end of the site
-     ============================================================ -->
-<section class="closer rv">
-  <div class="wrap">
-    <p>&ldquo;When he takes on a client, <span class="pur">his name is on the outcome.</span>&rdquo;</p>
   </div>
 </section>
 
@@ -1813,6 +1772,10 @@ body.menu-open .mobile-menu a.m-link{ opacity:1; transform:none; }
   <div class="wrap">
 
     <div class="foot-top">
+      <p class="foot-quote">
+        &ldquo;When he takes on a client, <span class="pur">his name is on the outcome.</span>&rdquo;
+      </p>
+
       <div class="foot-links">
         <div class="foot-col">
           <h4>Site</h4>
@@ -1829,7 +1792,8 @@ body.menu-open .mobile-menu a.m-link{ opacity:1; transform:none; }
         </div>
         <div class="foot-col">
           <h4>Contact</h4>
-          <a href="mailto:intouch.ananda@gmail.com">intouch.ananda@gmail.com</a>
+          <!-- REPLACE: real email -->
+          <a href="mailto:REPLACE@YOUREMAIL.com">REPLACE@YOUREMAIL.com</a>
         </div>
       </div>
     </div>
@@ -1837,11 +1801,15 @@ body.menu-open .mobile-menu a.m-link{ opacity:1; transform:none; }
     <div class="foot-bot">
       <span>&copy; <span id="yr">2026</span> Ananda Paramanick. All rights reserved.</span>
       <div class="foot-social">
-        <a href="https://x.com/OnlyAnanda_" target="_blank" rel="noopener" aria-label="X (Twitter)">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.6 8.7L23 22h-6.7l-5.2-6.8L5 22H1.9l8.1-9.3L1 2h6.9l4.7 6.2L18.9 2Zm-1.2 18h1.9L7.4 4H5.4l12.3 16Z"/></svg>
+        <!-- REPLACE: real social URLs -->
+        <a href="https://youtube.com/@REPLACE" target="_blank" rel="noopener" aria-label="YouTube">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8ZM9.6 15.6V8.4l6.2 3.6-6.2 3.6Z"/></svg>
         </a>
-        <a href="https://in.linkedin.com/in/anandaparamanick" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <a href="https://linkedin.com/in/REPLACE" target="_blank" rel="noopener" aria-label="LinkedIn">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.4 20.4h-3.6v-5.6c0-1.3 0-3-1.9-3s-2.1 1.4-2.1 2.9v5.7H9.2V9h3.4v1.6h.1c.5-.9 1.7-1.9 3.4-1.9 3.6 0 4.3 2.4 4.3 5.5v6.2ZM5.3 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2ZM7.1 20.4H3.5V9h3.6v11.4Z"/></svg>
+        </a>
+        <a href="https://instagram.com/REPLACE" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.3 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.3 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.3-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.3-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4 1.3-.1 1.7-.1 4.9-.1Zm0 5.8a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm0 6.6a2.6 2.6 0 1 1 0-5.2 2.6 2.6 0 0 1 0 5.2Zm5.1-6.8a.94.94 0 1 1-1.88 0 .94.94 0 0 1 1.88 0Z"/></svg>
         </a>
       </div>
     </div>
@@ -1950,6 +1918,8 @@ const CALENDLY_URL = "REPLACE_WITH_YOUR_CALENDLY_LINK"; // e.g. "https://calendl
     const max = doc.scrollHeight - doc.clientHeight;
     $('#progress').style.width = (max > 0 ? (y / max) * 100 : 0) + '%';
 
+    $('#rail').classList.toggle('on', y > window.innerHeight * 0.55);
+
     let cur = null;
     const line = y + window.innerHeight * 0.32;
     secs.forEach(s => { if (s.offsetTop <= line) cur = s; });
@@ -1985,8 +1955,9 @@ const CALENDLY_URL = "REPLACE_WITH_YOUR_CALENDLY_LINK"; // e.g. "https://calendl
     $$('.rv').forEach(el => el.classList.add('in'));
   }
 
-  /* ---------- marquee: duplicate every track for a seamless loop ---------- */
-  $$('[data-marquee]').forEach(mq => mq.appendChild(mq.firstElementChild.cloneNode(true)));
+  /* ---------- marquee: duplicate for seamless loop ---------- */
+  const mq = $('#marquee');
+  if (mq) mq.appendChild(mq.firstElementChild.cloneNode(true));
 
   /* ---------- counters ---------- */
   const counters = $$('[data-count]');
@@ -1997,16 +1968,13 @@ const CALENDLY_URL = "REPLACE_WITH_YOUR_CALENDLY_LINK"; // e.g. "https://calendl
         cio.unobserve(e.target);
         const el = e.target;
         const target = parseFloat(el.dataset.count);
-        const prefix = el.dataset.prefix || '';
         const suffix = el.dataset.suffix || '';
-        const locale = 'locale' in el.dataset;
-        const fmt = (n) => prefix + (locale ? Math.round(n).toLocaleString('en-US') : Math.round(n)) + suffix;
-        if (reduced) { el.textContent = fmt(target); return; }
+        if (reduced) { el.textContent = target + suffix; return; }
         const dur = 1400; const t0 = performance.now();
         const tick = (t) => {
           const p = Math.min((t - t0) / dur, 1);
           const eased = 1 - Math.pow(1 - p, 3);
-          el.textContent = fmt(target * eased);
+          el.textContent = Math.round(target * eased) + suffix;
           if (p < 1) requestAnimationFrame(tick);
         };
         requestAnimationFrame(tick);
@@ -2072,25 +2040,10 @@ const CALENDLY_URL = "REPLACE_WITH_YOUR_CALENDLY_LINK"; // e.g. "https://calendl
     // set src last so the listeners above are guaranteed to be attached
     img.src = 'https://i.ytimg.com/vi/' + id + '/maxresdefault.jpg';
 
-    // click/tap plays the video inline, right inside the thumbnail —
-    // no pop-up. The visitor can still use the native YouTube fullscreen
-    // control (bottom-right of the player) to expand it if they want.
-    const playInline = () => {
-      if (card.classList.contains('playing')) return;
-      card.classList.add('playing');
-      const title = (card.dataset.title || 'Video').replace(/"/g, '');
-      thumb.innerHTML =
-        '<iframe src="https://www.youtube-nocookie.com/embed/' + id +
-        '?autoplay=1&rel=0&modestbranding=1" title="' + title +
-        '" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
-    };
-    card.addEventListener('click', playInline);
-    card.addEventListener('keydown', e => {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); playInline(); }
-    });
+    card.addEventListener('click', () => openVideo(id, card.dataset.title || ''));
   });
 
-  /* ---------- lightbox (screenshots only) ---------- */
+  /* ---------- lightbox ---------- */
   const lb = $('#lb'), lbBox = $('#lbBox'), lbCap = $('#lbCap');
   let lastFocus = null;
 
@@ -2111,8 +2064,17 @@ const CALENDLY_URL = "REPLACE_WITH_YOUR_CALENDLY_LINK"; // e.g. "https://calendl
   function closeLB() {
     lb.classList.remove('on');
     lockScroll(false);
-    setTimeout(() => { lbBox.innerHTML = ''; }, 400);
+    setTimeout(() => { lbBox.innerHTML = ''; }, 400); // kill the iframe -> stops audio
     if (lastFocus) lastFocus.focus();
+  }
+
+  function openVideo(id, title) {
+    openLB(
+      '<div class="lb-frame"><iframe src="https://www.youtube-nocookie.com/embed/' + id +
+      '?autoplay=1&rel=0&modestbranding=1" title="' + (title || 'Video').replace(/"/g, '') +
+      '" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>',
+      title, false
+    );
   }
 
   $$('.shot').forEach(fig => {
